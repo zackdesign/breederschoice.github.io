@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <style type="text/css">
+
+    #navigation {
+        position: fixed;
+        right: 0;
+        text-align: center;
+        z-index: 1;
+    }
+
+    #navigation i {
+        font-size: 2.2em;
+    }
+
+    #intro {
+        background: #404040 url('/images/back1.jpg') 50% 0 repeat;
+        height: 352px;
+    }
+    .logo {
+       margin-top: 302px;
+    }
+    #products {
+        background: #FFFFFF url('/images/back2.jpg') 50% 0 repeat fixed;
+        margin-top: 110px;
+    }
+    #products .products {
+        text-align: center;
+    }
+    #products img {
+        vertical-align: top;
+  display: inline;
+  margin-bottom: 20px;
+    }
+
+    #shavings {
+        background: #1daf0e url('/images/back3.jpg') 50% 0 repeat fixed;
+        padding-top: 20px;
+        color: white;
+    }
+    .pet-flakes {
+  padding: 15px;
+  }
+.popover-content { color: black }
+    #about {
+        background: #404040 url('/images/back4.jpg') 50% 0 repeat fixed;
+    }
+
+    #contact {
+        background-color: #404040;
+    }
+
+    #contact h1, #contact label, #contact .ninja-forms-required-items, #contact .ninja-forms-success-msg {
+        color: white;
+    }
+
+    #footer {
+        background: #404040 url('/images/footer.jpg') top center;
+        height: 37px;
+        border-bottom: 4px solid white;
+    }
+
+    .jumbotron {
+        background: none;
+    }
+
+    #about h1 {
+        margin-top: 0;
+    }
+
+    #about .jumbotron {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: white;
+        background: rgb(0, 0, 0) transparent;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .panel {
+        color: #333;
+    }
+
+    #footer a {
+        color: black;
+        font-weight: bold;
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        #products {
+            height: 500px;
+            margin-top: 0;
+        }
+        #products .products {
+            margin-top: 110px;
+        }
+  #products img {
+      margin-bottom: auto;
+  }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .container .jumbotron {
+            padding-right: 230px;
+            padding-left: 230px;
+        }
+    }
+
+    </style>
+</head>
+<body>
+  <div id="navigation" class="panel panel-default">
+      <ul class="nav nav-pills nav-stacked">
+          <li><a href="#intro"><i class="fa fa-home" title="Home"></i></a></li>
+          <li><a href="#products"><i class="fa fa-tag" title="Products"></i></a></li>
+          <li><a href="#about"><i class="fa fa-info-circle" title="About Us"></i></a></li>
+          <li><a href="#contact"><i class="fa fa-envelope" title="Email"></i></a></li>
+          <li><a href="#call"><i class="fa fa-phone" title="Call"></i></a></li>
+          <li><a href="#map"><i class="fa fa-map-marker"></i></a></li>
+      </ul>
+  </div>
+
+  <section id="intro">
+
+      <div class="container">
+          <img width="404" height="114" src="/images/logo.png" alt="Breeder's Choice Packaged Woodshavings" class="logo center-block img-responsive" />
+      </div>
+
+  </section>
+
+  <section id="products" data-speed="6" data-type="background">
+
+      <div class="container">
+          <div class="products">
+              <img width="680" height="453" src="/images/products.jpg" alt="Breeder's Choice Packaged Woodshavings" class="img-responsive img-rounded" />
+        </div>
+          </div>
+      </div>
+
+  </section>
+
+  <section id="shavings" data-speed="6" data-type="background">
+
+      <div class="container">
+                <div class="jumbotron">
+        <p>Breeder&#8217;s Choice Woodshavings produce a clean and hygienic kiln-dried pine bedding which is marketed under the brand name of <strong>Breeder&#8217;s Choice</strong>.</p>
+        <p>Breeder&#8217;s Choice pine woodshavings are for use as a bedding litter for all types of animals. Our shavings come from only kiln-dried pine and hence have a very high absorbency rate.</p>
+        <p>Our woodshavings are a high-grade product, which has been specially screened to remove harmful dusts and reduce the incidence of reactive airway disease in animals.</p>
+        <p>Baled woodshavings are particularly suitable for use in stables, poultry nests and sheds, calf sheds, and other types of animal enclosures.</p>
+        <p>Our standard poly bale is 0.07 cubic metres (compressed) and provides approximately 0.2 cubic metres of uncompressed volume. We also offer a larger &#8220;wool pack&#8221; type bale, which provides approximately 1.2 cubic metres of uncompressed volume.</p>
+        <p>Breeder&#8217;s Choice Woodshavings now also supply &#8220;Pet Flakes&#8221; which have been specifically made for the small animal market. These bags are approximately 1kg in size and are made up of dust extracted woodshavings. As is the case with our larger bales, &#8220;Pet Flakes&#8221; are highly absorbent and are a 100% natural product. However, the shavings used in &#8220;Pet Flakes&#8221; are slightly smaller in size to ensure the suitability and comfort for smaller animals.</p>
+
+                </div>
+      </div>
+
+  </section>
+
+  <section id="about" data-speed="6" data-type="background">
+      <div class="container">
+         <div class="jumbotron">
+     <h1>About Us</h1>
+     <p>Breeders Choice Woodshavings is a family owned business that commenced operation in 1994. Located in Colac in the western district of Victoria, on the edge of the Otways, which is one of the largest pine plantations in Australia.</p>
+ <p>The sole business activity of Breeder&#8217;s Choice is the packaging and sale of kiln-dried pine woodshavings. All shavings go through a screening process to remove the smaller flakes and sawdust, thus providing very good absorbency</p>
+ <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that our shavings are clean, hygienic and come from only kiln dried radiata pine, with a moisture content of between 8% and 12%.</p>
+ <p>We have supplied our packaged shavings into every state of Australia. Please contact us to locate a stockist in your area.</p>
+         </div>
+      </div>
+
+  </section>
+
+  <section id="contact">
+      <div class="container">
+          <div class="jumbotron">
+            Email?
+          </div>
+      </div>
+
+  </section>
+
+  <section id="map">
+      <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=breeder's+choice+woodshavings&amp;aq=&amp;sll=-38.344848,143.60772&amp;sspn=0.015718,0.033023&amp;ie=UTF8&amp;hq=breeder's+choice+woodshavings&amp;hnear=&amp;t=m&amp;ll=-38.34068,143.608646&amp;spn=0.011781,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+  </section>
+
+  <section id="footer">
+      <div class="container">
+      <a target="_blank" href="http://www.zackdesign.biz" class="pull-right">Website by Zack Design</a>
+      </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+      $window = $(window);
+      $('section[data-type="background"]').each(function(){
+          var $bgobj = $(this);
+          $(window).scroll(function() {
+              var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+              var coords = '50% ' + yPos + 'px';
+              $bgobj.css({ backgroundPosition: coords });
+          });
+      });
+      document.createElement("article");
+      document.createElement("section");
+  });
+  </script>
+  </body>
+  </html>
+
