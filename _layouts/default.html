@@ -1,14 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="en">
-<head>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <style type="text/css">
 
     #navigation {
@@ -18,8 +20,10 @@
         z-index: 1;
     }
 
-    #navigation i {
-        font-size: 2.2em;
+    .call-button {
+      position: absolute;
+      top: 5px;
+      left: 5px;
     }
 
     #intro {
@@ -31,15 +35,10 @@
     }
     #products {
         background: #FFFFFF url('/images/back2.jpg') 50% 0 repeat fixed;
-        margin-top: 110px;
     }
-    #products .products {
-        text-align: center;
-    }
-    #products img {
-        vertical-align: top;
-  display: inline;
-  margin-bottom: 20px;
+    .product {
+      margin-top: 100px;
+      margin-bottom: -50px;
     }
 
     #shavings {
@@ -47,19 +46,17 @@
         padding-top: 20px;
         color: white;
     }
-    .pet-flakes {
-  padding: 15px;
-  }
-.popover-content { color: black }
+
     #about {
         background: #404040 url('/images/back4.jpg') 50% 0 repeat fixed;
+        padding-top: 40px;
     }
 
     #contact {
         background-color: #404040;
     }
 
-    #contact h1, #contact label, #contact .ninja-forms-required-items, #contact .ninja-forms-success-msg {
+    #contact h1 {
         color: white;
     }
 
@@ -73,68 +70,33 @@
         background: none;
     }
 
-    #about h1 {
-        margin-top: 0;
-    }
-
     #about .jumbotron {
-        margin-top: 30px;
-        margin-bottom: 30px;
         color: white;
         background: rgb(0, 0, 0) transparent;
         background: rgba(0, 0, 0, 0.8);
     }
 
-    .panel {
-        color: #333;
-    }
-
-    #footer a {
-        color: black;
-        font-weight: bold;
-        margin-top: 10px;
-        font-size: 0.8em;
-    }
-
-    @media screen and (min-width: 768px) {
-
-        #products {
-            height: 500px;
-            margin-top: 0;
-        }
-        #products .products {
-            margin-top: 110px;
-        }
-  #products img {
-      margin-bottom: auto;
-  }
-    }
-
-    @media screen and (min-width: 1200px) {
-        .container .jumbotron {
-            padding-right: 230px;
-            padding-left: 230px;
-        }
-    }
-
     </style>
 </head>
 <body>
-  <div id="navigation" class="panel panel-default">
-      <ul class="nav nav-pills nav-stacked">
-          <li><a href="#intro"><i class="fa fa-home" title="Home"></i></a></li>
-          <li><a href="#products"><i class="fa fa-tag" title="Products"></i></a></li>
-          <li><a href="#about"><i class="fa fa-info-circle" title="About Us"></i></a></li>
-          <li><a href="#contact"><i class="fa fa-envelope" title="Email"></i></a></li>
-          <li><a href="#call"><i class="fa fa-phone" title="Call"></i></a></li>
-          <li><a href="#map"><i class="fa fa-map-marker"></i></a></li>
-      </ul>
+  <div id="navigation" class="card">
+      <div class="nav flex-column nav-pills" aria-orientation="vertical">
+          <a href="tel:+613 5232 2200" class="btn btn-primary nav-link"><i class="fa fa-phone fa-2x" title="Call"></i></a>
+          <a class="nav-link" href="#intro"><i class="fa fa-home fa-2x" title="Home"></i></a>
+          <a class="nav-link" href="#products"><i class="fa fa-tag fa-2x" title="Products"></i></a>
+          <a class="nav-link" href="#about"><i class="fa fa-info-circle fa-2x" title="About Us"></i></a>
+          <a class="nav-link" href="#contact"><i class="fa fa-envelope fa-2x" title="Contact"></i></a>
+          <a class="nav-link" href="#map"><i class="fa fa-map-marker fa-2x" title="Location"></i></a>
+      </div>
   </div>
 
   <section id="intro">
-
       <div class="container">
-          <img width="404" height="114" src="/images/logo.png" alt="Breeder's Choice Packaged Woodshavings" class="logo center-block img-responsive" />
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+              <img width="404" height="114" src="/images/logo.png" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid mx-auto d-block rounded logo" />
+            </div>
+        </div>
       </div>
 
   </section>
@@ -142,9 +104,10 @@
   <section id="products" data-speed="6" data-type="background">
 
       <div class="container">
-          <div class="products">
-              <img width="680" height="453" src="/images/products.jpg" alt="Breeder's Choice Packaged Woodshavings" class="img-responsive img-rounded" />
-        </div>
+          <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <img width="680" height="453" src="/images/products.jpg" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid mx-auto d-block rounded product" />
+            </div>
           </div>
       </div>
 
@@ -153,7 +116,9 @@
   <section id="shavings" data-speed="6" data-type="background">
 
       <div class="container">
-                <div class="jumbotron">
+        <div class="row">
+          <div class="col">
+                <div class="jumbotron lead">
         <p>Breeder&#8217;s Choice Woodshavings produce a clean and hygienic kiln-dried pine bedding which is marketed under the brand name of <strong>Breeder&#8217;s Choice</strong>.</p>
         <p>Breeder&#8217;s Choice pine woodshavings are for use as a bedding litter for all types of animals. Our shavings come from only kiln-dried pine and hence have a very high absorbency rate.</p>
         <p>Our woodshavings are a high-grade product, which has been specially screened to remove harmful dusts and reduce the incidence of reactive airway disease in animals.</p>
@@ -162,44 +127,76 @@
         <p>Breeder&#8217;s Choice Woodshavings now also supply &#8220;Pet Flakes&#8221; which have been specifically made for the small animal market. These bags are approximately 1kg in size and are made up of dust extracted woodshavings. As is the case with our larger bales, &#8220;Pet Flakes&#8221; are highly absorbent and are a 100% natural product. However, the shavings used in &#8220;Pet Flakes&#8221; are slightly smaller in size to ensure the suitability and comfort for smaller animals.</p>
 
                 </div>
+          </div>
+        </div>
       </div>
 
   </section>
 
   <section id="about" data-speed="6" data-type="background">
       <div class="container">
-         <div class="jumbotron">
-     <h1>About Us</h1>
-     <p>Breeders Choice Woodshavings is a family owned business that commenced operation in 1994. Located in Colac in the western district of Victoria, on the edge of the Otways, which is one of the largest pine plantations in Australia.</p>
- <p>The sole business activity of Breeder&#8217;s Choice is the packaging and sale of kiln-dried pine woodshavings. All shavings go through a screening process to remove the smaller flakes and sawdust, thus providing very good absorbency</p>
- <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that our shavings are clean, hygienic and come from only kiln dried radiata pine, with a moisture content of between 8% and 12%.</p>
- <p>We have supplied our packaged shavings into every state of Australia. Please contact us to locate a stockist in your area.</p>
-         </div>
+        <div class="row">
+          <div class="col">
+           <div class="jumbotron lead">
+       <h1>About Us</h1>
+       <p>Breeders Choice Woodshavings is a family owned business that commenced operation in 1994. Located in Colac in the western district of Victoria, on the edge of the Otways, which is one of the largest pine plantations in Australia.</p>
+   <p>The sole business activity of Breeder&#8217;s Choice is the packaging and sale of kiln-dried pine woodshavings. All shavings go through a screening process to remove the smaller flakes and sawdust, thus providing very good absorbency</p>
+   <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that our shavings are clean, hygienic and come from only kiln dried radiata pine, with a moisture content of between 8% and 12%.</p>
+   <p>We have supplied our packaged shavings into every state of Australia. Please contact us to locate a stockist in your area.</p>
+           </div>
+          </div>
+        </div>
       </div>
 
   </section>
 
   <section id="contact">
-      <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
           <div class="jumbotron">
-            Email?
-          </div>
-      </div>
+            <h1>Contact</h1>
 
+            <div class="row">
+              <div class="col-lg">
+
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}"><i class="fa fa-at fa-lg" title="Email"></i> Email</a></li>
+                <li class="list-group-item"><a href="tel:+613 5232 2200"><i class="fa fa-phone fa-lg" title="Call"></i> +613 5232 2200</a></li>
+                <li class="list-group-item"><i class="fa fa-fax fa-lg" title="Fax"></i>  +613 5232 2270</li>
+              </ul>
+            </div>
+
+              </div><div class="col-lg">
+
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="fa fa-envelope fa-lg" title="Mail"></i>  Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia</li>
+                <li class="list-group-item"><i class="fa fa-map-marker-alt fa-lg" title="Location"></i>  92/100 Forest St S, Colac VIC 3250</li>
+              </ul>
+            </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="map">
       <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=breeder's+choice+woodshavings&amp;aq=&amp;sll=-38.344848,143.60772&amp;sspn=0.015718,0.033023&amp;ie=UTF8&amp;hq=breeder's+choice+woodshavings&amp;hnear=&amp;t=m&amp;ll=-38.34068,143.608646&amp;spn=0.011781,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
   </section>
 
-  <section id="footer">
-      <div class="container">
-      <a target="_blank" href="http://www.zackdesign.biz" class="pull-right">Website by Zack Design</a>
-      </div>
+  <section id="footer" class="text-right">
+    <a target="_blank" href="http://www.zackdesign.biz" class="badge badge-light">Website by Zack Design</a>
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
-  </html>
-
+</html>
