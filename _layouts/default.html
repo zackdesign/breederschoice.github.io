@@ -278,6 +278,7 @@
         // Thank you!
         $(".nav-link").click(function() {
           $(this).addClass("click");
+          window.navigator.vibrate(200);
 
           var remove = function(button) {
             $(button).removeClass("click");
