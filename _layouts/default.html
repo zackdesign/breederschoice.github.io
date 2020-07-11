@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style type="text/css">
 
     #navigation {
@@ -257,35 +257,35 @@
     <a target="_blank" href="http://www.zackdesign.biz" class="badge badge-light">Website by Zack Design</a>
   </section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    jQuery(document).ready(function($) {
+      jQuery(document).ready(function($) {
 
-        $window = $(window);
-        $('section[data-type="background"]').each(function(){
-            var $bgobj = $(this);
-            $(window).scroll(function() {
-                var yPos = -($window.scrollTop() / $bgobj.data('speed'));
-                var coords = '50% ' + yPos + 'px';
-                $bgobj.css({ backgroundPosition: coords });
-            });
-        })
+          $window = $(window);
+          $('section[data-type="background"]').each(function(){
+              var $bgobj = $(this);
+              $(window).scroll(function() {
+                  var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+                  var coords = '50% ' + yPos + 'px';
+                  $bgobj.css({ backgroundPosition: coords });
+              });
+          })
 
-        // https://tympanus.net/codrops/2015/02/11/subtle-click-feedback-effects/
-        // Thank you!
-        $(".nav-link").click(function() {
-          $(this).addClass("click");
-          window.navigator.vibrate(200);
+          // https://tympanus.net/codrops/2015/02/11/subtle-click-feedback-effects/
+          // Thank you!
+          $(".nav-link").click(function() {
+            $(this).addClass("click");
+            window.navigator.vibrate(200);
 
-          var remove = function(button) {
-            $(button).removeClass("click");
-          };
+            var remove = function(button) {
+              $(button).removeClass("click");
+            };
 
-          setTimeout(remove, 300, this);
-        });
-    });
+            setTimeout(remove, 300, this);
+          });
+      });
     </script>
   </body>
 </html>
