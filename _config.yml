@@ -18,7 +18,10 @@ email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Packaged wood shavings and animal bedding
 baseurl: "" # the subpath of your site, e.g. /blog
+
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+stockistscsv: https://dl.dropbox.com/s/d8eqejkyb5xj1it/superior_shavings.csv
 
 # Build settings
 markdown: kramdown
