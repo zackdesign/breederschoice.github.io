@@ -8,10 +8,6 @@
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
 
-
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-
     <script src="https://kit.fontawesome.com/17357694a0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style type="text/css">
@@ -27,6 +23,25 @@
       position: absolute;
       top: 5px;
       left: 5px;
+    }
+
+    #shavings ul {
+      list-style-type: none;
+      diplay: flex;
+      flex-direction: row;
+      padding: 0;
+      margin: 0;
+      justify-content: space-between;
+      padding-bottom: 1em;
+    }
+    #shavings ul li::before {
+      content: "\f058";
+      font-family: "Font Awesome 5 Free";
+      padding: 0 10px 0 0;
+    }
+    #shavings ul li {
+      display: inline-block;
+      padding: 10px;
     }
 
     #intro {
@@ -173,7 +188,7 @@
 
       gtag('config', 'UA-45858679-1');
     </script>
-
+    {% seo %}
 </head>
 <body>
   <div id="navigation" class="card">
@@ -217,12 +232,42 @@
         <div class="row">
           <div class="col">
                 <div class="jumbotron lead">
-        <p>Breeder&#8217;s Choice Woodshavings produce a clean and hygienic kiln-dried pine bedding which is marketed under the brand name of <strong>Breeder&#8217;s Choice</strong>.</p>
-        <p>Breeder&#8217;s Choice pine woodshavings are for use as a bedding litter for all types of animals. Our shavings come from only kiln-dried pine and hence have a very high absorbency rate.</p>
-        <p>Our woodshavings are a high-grade product, which has been specially screened to remove harmful dusts and reduce the incidence of reactive airway disease in animals.</p>
-        <p>Baled woodshavings are particularly suitable for use in stables, poultry nests and sheds, calf sheds, and other types of animal enclosures.</p>
-        <p>Our standard poly bale is 0.07 cubic metres (compressed) and provides approximately 0.2 cubic metres of uncompressed volume. We also offer a larger &#8220;wool pack&#8221; type bale, which provides approximately 1.2 cubic metres of uncompressed volume.</p>
+                  <p>Breeder's Choice woodshavings are a high-grade product which is suitable for use as a
+          bedding litter in horse stables, chicken nests and sheds, calf sheds and various other animal
+          enclosures.</p>
+                  <p>We currently produce two different size bales. Our standard bale weighs 14kg and provides
+          approximately 0.2 cubic metres of volume when uncompressed. We also offer a larger 'wool
+          pack' type bale, which provides approximately 1.2 cubic metres of uncompressed volume.</p>
+                  <p>The benefits of our baled woodshavings are:</p>
 
+                  <ul>
+                    <li>
+                      Screened &amp; Dust Extracted:<br /><br />
+
+                      <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
+reactive airway disease in animals. Using a purpose built ‘trommel’ screen, we are able
+to remove a higher proportion of the sawdust and ensure we are producing a superior
+quality product.</p>
+                    </li>
+                    <li>
+                      Kiln dried for better absorbency:<br /><br />
+
+                      <p>The woodshavings are a by-product from the timber milling process and have been kiln
+dried to achieve a moisture content of between 8% and 12%.</p>
+                    </li>
+                    <li>
+                      All-natural product:<br /><br />
+
+                      <p>The shavings are all natural and free of any chemical additives.</p>
+                    </li>
+                    <li>
+                      Clean &amp; hygienic:<br /><br />
+
+                      <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
+used for transporting our shavings, which reduces the risk of contaminants in our
+shavings.</p>
+                    </li>
+                  </ul>
                 </div>
           </div>
         </div>
@@ -237,7 +282,7 @@
           <div class="header jumbotron lead">
             <h1>Stockists</h1>
 
-            <h4>Enter your location or suburb to find your closest Superior Shavings stockist. <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-primary"> Become a Stockist</a></h4>
+            <h4>Enter your location or suburb to find your closest Breeder's Choice stockist. <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-primary"> Become a Stockist</a></h4>
 
             <div class="row">
               <div class="col col-12 col-md-5">
@@ -294,10 +339,18 @@
           <div class="col">
            <div class="jumbotron lead">
        <h1>About Us</h1>
-       <p>Breeders Choice Woodshavings is a family owned business that commenced operation in 1994. Located in Colac in the western district of Victoria, on the edge of the Otways, which is one of the largest pine plantations in Australia.</p>
-   <p>The sole business activity of Breeder&#8217;s Choice is the packaging and sale of kiln-dried pine woodshavings. All shavings go through a screening process to remove the smaller flakes and sawdust, thus providing very good absorbency</p>
-   <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that our shavings are clean, hygienic and come from only kiln dried radiata pine, with a moisture content of between 8% and 12%.</p>
-   <p>We have supplied our packaged shavings into every state of Australia. Please contact us to locate a stockist in your area.</p>
+       <p>Breeder's Choice Woodshavings is a family owned business that has been operating in Colac
+(Victoria) since 1994. Colac is located in the western district of Victoria, on the edge of the
+Otways, which is one of the largest pine plantations in Australia.</p>
+   <p>The sole business activity of Breeder's Choice is the packaging and sale of kiln-dried pine
+woodshavings. All shavings go through a screening process to remover the smaller flakes
+and sawdust, thus providing a high-grade product and ensuring very good absorbency.</p>
+   <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that
+our shavings are clean, hygienic, and come from only kiln dried radiata pine, with a moisture
+content of between 8% and 12%.</p>
+   <p>We have supplied our packaged shavings into every state of Australia. Please search the
+'stockists' section of our website to find a seller of Breeder's Choice Woodshavings in your
+area.</p>
            </div>
           </div>
         </div>
@@ -344,6 +397,7 @@
 
   <section id="footer" class="text-right">
     <a target="_blank" href="http://www.zackdesign.biz" class="badge badge-light">Website by Zack Design</a>
+    <a target="_blank" href="https://superiorshavings.com.au" class="badge badge-light">Superior Shavings</a>
   </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
