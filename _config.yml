@@ -25,12 +25,11 @@ stockistscsv: https://dl.dropbox.com/s/b3gmuxhrrye00gl/breeders_choice.csv
 # Build settings
 markdown: kramdown
 
-repository: zackdesign/zackdesign.github.io
+repository: zackdesign/breederschoice.github.io
 
 plugins:
   - jekyll-email-protect
   - jekyll-seo-tag
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
