@@ -11,7 +11,7 @@
     <link rel="manifest" href="/images/site.webmanifest">
 
     <script src="https://kit.fontawesome.com/17357694a0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style type="text/css">
 
     #navigation {
@@ -27,23 +27,15 @@
       left: 5px;
     }
 
-    #shavings ul {
-      list-style-type: none;
-      diplay: flex;
-      flex-direction: row;
-      padding: 0;
-      margin: 0;
-      justify-content: space-between;
-      padding-bottom: 1em;
-    }
-    #shavings ul li::before {
+    #shavings ul li h3::before {
       content: "\f058";
       font-family: "Font Awesome 5 Free";
       padding: 0 10px 0 0;
     }
-    #shavings ul li {
-      display: inline-block;
-      padding: 10px;
+
+    video {
+      width: 100%;
+      height: auto;
     }
 
     #intro {
@@ -51,29 +43,12 @@
         height: 352px;
     }
     .logo {
-       margin-top: 300px;       
+       margin-top: 65px;       
     }
-    @media (min-width: 445px) { 
-          .logo {
-            margin-top: 250px;
-          }
-      }
-      @media (min-width: 768px) { 
-          .logo {
-            margin-top: 200px;
-          }
-      }
-      @media (min-width: 992px) { 
-          .logo {
-            margin-top: 180px;
-          }
-      }
+    
     #products {
-        background: #FFFFFF url('/images/back2.jpg') 50% 50% repeat fixed;
-    }
-    .product {
-      margin-top: 100px;
-      margin-bottom: -50px;
+        background: #FFFFFF url('/images/bales.jpg') 50% 50% repeat fixed;
+        height: 120vh;
     }
 
     #shavings {
@@ -82,7 +57,7 @@
         color: white;
     }
 
-    #stockists .header.jumbotron {
+    #stockists .header {
       margin-bottom: 0;
       padding-bottom: 0;
     }
@@ -128,11 +103,7 @@
         border-bottom: 4px solid white;
     }
 
-    .jumbotron {
-        background: none;
-    }
-
-    #about .jumbotron {
+    #about .lead {
         color: white;
         background: rgb(0, 0, 0) transparent;
         background: rgba(0, 0, 0, 0.8);
@@ -227,15 +198,9 @@
   </section>
 
   <section id="products">
-
-      <div class="container">
-          <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <img width="680" height="454" src="/images/products2.jpg" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid mx-auto d-block rounded product" />
-            </div>
-          </div>
-      </div>
-
+    <video autoplay muted controls class="m-0 p-0">
+      <source src="/images/video.webm" type="video/webm" />
+    </video>
   </section>
 
   <section id="shavings">
@@ -243,35 +208,35 @@
       <div class="container">
         <div class="row">
           <div class="col">
-                <div class="jumbotron lead">
+                <div class="p-5 rounded-lg m-3 lead">
                   <p>Breeder's Choice woodshavings are a high-grade product which is suitable for use as a
           bedding litter in horse stables, chicken nests and sheds, calf sheds and various other animal
           enclosures.</p>
                   <p>Our standard bale weighs 14kg and provides approximately 0.2 cubic metres of volume when uncompressed.</p>
                   <p>The benefits of our baled woodshavings are:</p>
 
-                  <ul>
-                    <li>
-                      Screened &amp; Dust Extracted:<br /><br />
+                  <ul class="list-group rounded">
+                    <li class="list-group-item">
+                      <h3>Screened &amp; Dust Extracted</h3>
 
                       <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
 reactive airway disease in animals. Using a purpose built ‘trommel’ screen, we are able
 to remove a higher proportion of the sawdust and ensure we are producing a superior
 quality product.</p>
                     </li>
-                    <li>
-                      Kiln dried for better absorbency:<br /><br />
+                    <li class="list-group-item">
+                      <h3>Kiln dried for better absorbency</h3>
 
                       <p>The woodshavings are a by-product from the timber milling process and have been kiln
 dried to achieve a moisture content of between 8% and 12%.</p>
                     </li>
-                    <li>
-                      All-natural product:<br /><br />
+                    <li class="list-group-item">
+                      <h3>All-natural product</h3>
 
                       <p>The shavings are all natural and free of any chemical additives.</p>
                     </li>
-                    <li>
-                      Clean &amp; hygienic:<br /><br />
+                    <li class="list-group-item">
+                      <h3>Clean &amp; hygienic</h3>
 
                       <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
 used for transporting our shavings, which reduces the risk of contaminants in our
@@ -289,7 +254,7 @@ shavings.</p>
     <div class="form container">
       <div class="row">
         <div class="col">
-          <div class="header jumbotron lead">
+          <div class="header p-5 rounded-lg m-3 lead">
             <h1>Stockists</h1>
 
             <h4>Enter your location or suburb to find your closest Breeder's Choice stockist. <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-primary"> Become a Stockist</a></h4>
@@ -298,13 +263,11 @@ shavings.</p>
               <div class="col col-12 col-md-5">
                 <div class="input-group mb-2">
                   <input type="search" class="form-control" id="location" placeholder="Enter your location">
-                  <div class="input-group-append">
                     <div class="input-group-text"><i class="fas fa-crosshairs"></i></div>
-                  </div>
                 </div>
               </div>
               <div class="col col-12 col-md-5">
-                <select id="search-radius" class="form-control" id="radius">
+                <select id="search-radius" class="form-select" id="radius">
                   <option value="10000">Within 10 km</option>
                   <option value="25000">Within 25 km</option>
                   <option value="50000">Within 50 km</option>
@@ -331,7 +294,7 @@ shavings.</p>
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="jumbotron">
+            <div class="p-5 rounded-lg m-3">
               <div class="no-results">There are currently no results. Try searching by location or increasing your search radius.</div>
               <div class="container">
                 <div class="row results"></div>
@@ -347,7 +310,7 @@ shavings.</p>
       <div class="container">
         <div class="row">
           <div class="col">
-           <div class="jumbotron lead">
+           <div class="p-5 rounded-lg m-3 lead rounded">
        <h1>About Us</h1>
        <p>Breeder's Choice Woodshavings is a family owned business that has been operating in Colac
 (Victoria) since 1994. Colac is located in the western district of Victoria, on the edge of the
@@ -372,7 +335,7 @@ area.</p>
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="jumbotron">
+          <div class="p-5 rounded-lg m-3">
             <h1>Contact</h1>
 
             <div class="row">
@@ -411,7 +374,7 @@ area.</p>
   </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
