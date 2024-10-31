@@ -48,7 +48,12 @@
     
     #products {
         background: #FFFFFF url('/images/bales.jpg') 50% 50% repeat fixed;
-        height: 120vh;
+    }
+
+    .product {
+      margin-top: 100px;
+      margin-bottom: -50px;
+      width: 50%;
     }
 
     #shavings {
@@ -198,11 +203,19 @@
   </section>
 
   <section id="products">
-    <video autoplay muted controls class="m-0 p-0">
+    <video autoplay muted controls loop class="m-0 p-0">
       <source src="/images/video.webm" type="video/webm" />
     </video>
+    
+    <div class="container ">
+      <div class="row ">
+        <div class="col d-flex justify-content-center">
+          <img src='/images/bales.jpg' class="img-fluid product rounded" alt="Breeder's Choice Packaged Woodshavings" />
+        </div>
+      </div>
+  </div>
   </section>
-
+  
   <section id="shavings">
 
       <div class="container">
