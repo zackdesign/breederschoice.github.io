@@ -14,6 +14,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style type="text/css">
 
+      #wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content auto;
+        height: 100vh;
+      }
+
     #navigation {
         position: fixed;
         right: 0;
@@ -33,32 +40,34 @@
       padding: 0 10px 0 0;
     }
 
-    video {
-      width: 100%;
-      height: auto;
-    }
-
     #intro {
         background: #404040 url('/images/back1.jpg') 50% 0 repeat;
-        height: 352px;
-    }
-    .logo {
-       margin-top: 65px;       
-    }
-    
-    #products {
-        background: #FFFFFF url('/images/bales.jpg') 50% 50% repeat fixed;
+        grid-row: 1;
     }
 
-    .product {
-      margin-top: 100px;
-      margin-bottom: -50px;
-      width: 50%;
+    #products {
+      background: #FFFFFF url('/images/bales.jpg') 50% 50% repeat fixed;
+      grid-row: 2;
+    }
+
+
+    #products div {
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #156d38;
+    }
+
+    video {
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:contain;
     }
 
     #shavings {
         background: #1daf0e url('/images/back3.jpg') 50% 50% repeat fixed;
-        padding-top: 20px;
         color: white;
     }
 
@@ -179,84 +188,84 @@
     {% seo %}
 </head>
 <body>
-  <div id="navigation" class="card">
-      <div class="nav flex-column nav-pills" aria-orientation="vertical">
-          <a href="tel:+613 5232 2200" class="btn btn-primary active nav-link"><i class="fa fa-phone fa-2x" title="Call"></i></a>
-          <a class="nav-link" href="#intro"><i class="fa fa-home fa-2x" title="Home"></i></a>
-          <a class="nav-link" href="#products"><i class="fa fa-tag fa-2x" title="Products"></i></a>
-          <a class="nav-link" href="#stockists"><i class="fa fa-search fa-2x" title="Stockists"></i></a>
-          <a class="nav-link" href="#about"><i class="fa fa-info-circle fa-2x" title="About Us"></i></a>
-          <a class="nav-link" href="#contact"><i class="fa fa-envelope fa-2x" title="Contact"></i></a>
-
-      </div>
-  </div>
-
-  <section id="intro">
-      <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-              <img width="800" height="317" src="/images/logo2.png" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid mx-auto d-block rounded logo" />
-            </div>
-        </div>
-      </div>
-
-  </section>
-
-  <section id="products">
-    <video autoplay muted controls loop class="m-0 p-0">
-      <source src="/images/video.webm" type="video/webm" />
-    </video>
     
-    <div class="container ">
-      <div class="row ">
-        <div class="col d-flex justify-content-center">
-          <img src='/images/bales.jpg' class="img-fluid product rounded" alt="Breeder's Choice Packaged Woodshavings" />
-        </div>
-      </div>
+  <div id="navigation" class="card">
+    <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a href="tel:+613 5232 2200" class="btn btn-primary active nav-link"><i class="fa fa-phone fa-2x" title="Call"></i></a>
+      <a class="nav-link" href="#intro"><i class="fa fa-home fa-2x" title="Home"></i></a>
+      <a class="nav-link" href="#shavings"><i class="fa fa-tag fa-2x" title="Products"></i></a>
+      <a class="nav-link" href="#stockists"><i class="fa fa-search fa-2x" title="Stockists"></i></a>
+      <a class="nav-link" href="#about"><i class="fa fa-info-circle fa-2x" title="About Us"></i></a>
+      <a class="nav-link" href="#contact"><i class="fa fa-envelope fa-2x" title="Contact"></i></a>
+      
+    </div>
   </div>
-  </section>
   
-  <section id="shavings">
-
+  <div id="wrapper">
+    <section id="intro">
       <div class="container">
-        <div class="row">
-          <div class="col">
-                <div class="p-5 rounded-lg m-3 lead">
-                  <p>Breeder's Choice woodshavings are a high-grade product which is suitable for use as a
+          <div class="d-flex justify-content-center" >
+            <img width="800" height="317" src="/images/logo2.png" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid rounded logo align-self-end" />
+          </div>
+      </div>
+      
+    </section>
+
+    <section id="products">
+      <div>
+      <video autoplay muted controls loop>
+        <source src="/images/video.webm" type="video/webm" />
+      </video>
+    </div>
+    </section>
+  </div>
+  
+  <section id="shavings" class="pt-5">
+
+      <div class="container lead">
+
+        <p>Breeder's Choice woodshavings are a high-grade product which is suitable for use as a
           bedding litter in horse stables, chicken nests and sheds, calf sheds and various other animal
           enclosures.</p>
                   <p>Our standard bale weighs 14kg and provides approximately 0.2 cubic metres of volume when uncompressed.</p>
                   <p>The benefits of our baled woodshavings are:</p>
+        <div class="row">
+          
+          <div class="col col-12 col-lg-6">
+            <div class="rounded-lg lead">
+              <ul class="list-group rounded mb-5">
+                <li class="list-group-item">
+                  <h3>Screened &amp; Dust Extracted</h3>
 
-                  <ul class="list-group rounded">
-                    <li class="list-group-item">
-                      <h3>Screened &amp; Dust Extracted</h3>
-
-                      <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
+                  <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
 reactive airway disease in animals. Using a purpose built ‘trommel’ screen, we are able
 to remove a higher proportion of the sawdust and ensure we are producing a superior
 quality product.</p>
-                    </li>
-                    <li class="list-group-item">
-                      <h3>Kiln dried for better absorbency</h3>
+                </li>
+                <li class="list-group-item">
+                  <h3>Kiln dried for better absorbency</h3>
 
-                      <p>The woodshavings are a by-product from the timber milling process and have been kiln
+                  <p>The woodshavings are a by-product from the timber milling process and have been kiln
 dried to achieve a moisture content of between 8% and 12%.</p>
-                    </li>
-                    <li class="list-group-item">
-                      <h3>All-natural product</h3>
+                </li>
+                <li class="list-group-item">
+                  <h3>All-natural product</h3>
 
-                      <p>The shavings are all natural and free of any chemical additives.</p>
-                    </li>
-                    <li class="list-group-item">
-                      <h3>Clean &amp; hygienic</h3>
+                  <p>The shavings are all natural and free of any chemical additives.</p>
+                </li>
+                <li class="list-group-item">
+                  <h3>Clean &amp; hygienic</h3>
 
-                      <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
+                  <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
 used for transporting our shavings, which reduces the risk of contaminants in our
 shavings.</p>
-                    </li>
-                  </ul>
-                </div>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          <div class="col mb-3">
+            <img src='/images/bales.jpg' class="img-fluid product rounded" alt="Breeder's Choice Packaged Woodshavings" />
           </div>
         </div>
       </div>
