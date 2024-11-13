@@ -296,9 +296,9 @@ shavings.</p>
 
             <div class="row">
               <div class="col col-12 col-md-5">
-                <div class="input-group mb-2">
-                  <input type="search" class="form-control" id="location" placeholder="Enter your location">
-                    <div class="input-group-text"><i class="fas fa-crosshairs"></i></div>
+                <div class="input-group mb-2" id="autocomplete">
+                  <!-- <input type="search" class="form-control" id="location" placeholder="Enter your location">-->
+                  <!-- <div class="input-group-text"><i class="fas fa-crosshairs"></i></div>  -->
                 </div>
               </div>
               <div class="col col-12 col-md-5">
@@ -329,7 +329,7 @@ shavings.</p>
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="p-5 rounded-lg m-3">
+            <div class="rounded-lg m-3">
               <div class="no-results">There are currently no results. Try searching by location or increasing your search radius.</div>
               <div class="container">
                 <div class="row results"></div>
@@ -411,13 +411,12 @@ area.</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8&callback=initGoogleAPI&libraries=geometry,places&v=weekly"
-        async
-        defer
-        type="text/javascript"
-      ></script>
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8",
+        v: "beta",
+      });
+    </script>
     <script type="text/javascript">
 
       let stockists = [];
@@ -432,24 +431,26 @@ area.</p>
 
       let updateStockistList = () => {};
 
-      const searchMap = () => {
-        if (!place || !place.geometry) {
+      const searchMap = async () => {
+        if (!place || !place.location) {
           return;
         }
+
+        await google.maps.importLibrary("geometry");
 
         resetMap();
 
         const searchArea = new google.maps.Circle({
-          center: place.geometry.location,
+          center: place.location,
           radius,
         });
 
         markers.forEach((marker, index) => {
 
           if (google.maps.geometry.spherical.computeDistanceBetween(
-            marker.getPosition(), searchArea.getCenter()
+            marker.position, searchArea.getCenter()
           ) <= searchArea.getRadius()) {
-            marker.setVisible(true);
+            marker.map = map;
             stockistListContent.push(infoWindows[index].getContent());
           }
 
@@ -461,7 +462,9 @@ area.</p>
 
       jQuery(document).ready(function($) {
 
-        const populateMap = () => {
+        const populateMap = async () => {
+          const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
           stockists.forEach((stockist) => {
             const stockistLatLong = { lat: parseFloat(stockist.Latitude), lng: parseFloat(stockist.Longitude) };
             const contentString = `
@@ -480,10 +483,11 @@ area.</p>
               content: contentString,
             });
 
-            const marker = new google.maps.Marker({
+            const marker = new AdvancedMarkerElement({
               position: stockistLatLong,
               map,
               title: stockist.Customer,
+              gmpClickable: true,
             });
 
             marker.addListener("click", () => {
@@ -505,10 +509,10 @@ area.</p>
           $(`#stockistsList .results`).html(stockistListContent.join(""));
         };
 
-        $.get("{{ site.stockistscsv }}", (data) => {
+        $.get("{{ site.stockistscsv }}", async (data) => {
           stockists = $.csv.toObjects(data);
           if (document.getElementById("stockistsMap")) {
-            populateMap();
+            await populateMap();
           }
         });
 
@@ -556,7 +560,7 @@ area.</p>
 
         // Ensuring we don't load a map until we need to
         // because otherwise it costs money
-        $window.scroll(() => {
+        $window.scroll(async () => {
           const top_of_element = $("#stockists").offset().top;
           const bottom_of_element = $("#stockists").offset().top + $("#stockists").outerHeight();
           const bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
@@ -565,36 +569,43 @@ area.</p>
           if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && !$("#stockistsMap").length){
             $("<div id='stockistsMap'></div>").insertAfter("#stockists .form.container");
 
-            if (typeof(google) !== undefined) {
-              initGoogleAPI();
-              populateMap();
-            }
+            await initGoogleAPI();
+            await google.maps.importLibrary("places");
+            const placeAutocomplete = new google.maps.places.PlaceAutocompleteElement({
+              componentRestrictions: { country: "au" }
+            });
+
+            $("#autocomplete").append(placeAutocomplete);
+            
+            placeAutocomplete.addEventListener("gmp-placeselect", async ({ place: placeFunction }) => {
+              await placeFunction.fetchFields({
+                fields: ["location"],
+              });
+              place = placeFunction
+              await searchMap();
+            });
+
+            await populateMap();
           }
         });
 
       });
 
       const resetMap = () => {
-        markers.forEach((marker) => marker.setVisible(false));
+        markers.forEach((marker) => marker.map = null);
         infoWindows.forEach((iw) => iw.close());
         stockistListContent = [];
       };
 
-      function initGoogleAPI() {
+      async function initGoogleAPI() {
         if (document.getElementById("stockistsMap")) {
+          const { Map } = await google.maps.importLibrary("maps");
           const myLatLng = { lat: -25.363, lng: 131.044 };
-          map = new google.maps.Map(document.getElementById("stockistsMap"), {
+          
+          map = new Map(document.getElementById("stockistsMap"), {
             zoom: 4,
-            center: myLatLng
-          });
-
-          const input = document.getElementById('location');
-          autocomplete = new google.maps.places.Autocomplete(input);
-          autocomplete.setComponentRestrictions({ 'country': ['au'] });
-
-          autocomplete.addListener('place_changed', () => {
-            place = autocomplete.getPlace();
-            searchMap();
+            center: myLatLng,
+            mapId: '381f33efb80891f',
           });
         }
       }
