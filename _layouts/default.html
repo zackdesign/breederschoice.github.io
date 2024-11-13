@@ -70,9 +70,6 @@
       display: flex;
     }
 
-    .listContainer .col{
-    }
-
     .listContainer img {
       width: 100%;
       height: 100%;
@@ -289,7 +286,7 @@ shavings.</p>
     <div class="form container">
       <div class="row">
         <div class="col">
-          <div class="header p-5 rounded-lg m-3 lead">
+          <div class="header rounded-lg mt-5 lead">
             <h1>Stockists</h1>
 
             <h4>Enter your location or suburb to find your closest Breeder's Choice stockist. <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-primary"> Become a Stockist</a></h4>
@@ -311,14 +308,13 @@ shavings.</p>
                 </select>
               </div>
               <div class="col col-12 col-md-2 my-2 my-md-0 toggle-map-or-list invisible">
-                <div class="btn-group btn-group-toggle stockists-view" data-toggle="buttons">
-                  <label class="btn btn-secondary active">
-                    <input type="radio" name="options" autocomplete="off" id="map" checked class="btn-check"> <i class="fas fa-map-marker"></i>
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" autocomplete="off" id="list" class="btn-check"> <i class="fas fa-list"></i>
-                  </label>
+                <div class="btn-group btn-group-toggle stockists-view" role="group">
+                  <input type="radio" name="options" autocomplete="off" id="map" checked class="btn-check"> 
+                  <label class="btn btn-secondary" for="map"><i class="fas fa-map-marker"></i></label>
+                  <input type="radio" name="options" autocomplete="off" id="list" class="btn-check"> 
+                  <label class="btn btn-secondary" for="list"><i class="fas fa-list"></i></label>
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -408,9 +404,9 @@ area.</p>
     <a target="_blank" href="https://superiorshavings.com.au" class="badge badge-light">Superior Shavings</a>
   </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
         key: "AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8",
@@ -516,9 +512,9 @@ area.</p>
           }
         });
 
-        $("#search-radius").on('change', function() {
+        $("#search-radius").on('change', async () => {
           radius = parseInt(this.value, 10);
-          searchMap();
+          await searchMap();
           updateStockistList();
         });
 
