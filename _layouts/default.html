@@ -513,7 +513,7 @@ area.</p>
         });
 
         $("#search-radius").on('change', async () => {
-          radius = parseInt(this.value, 10);
+          radius = Number($(this).find(":selected").val());
           await searchMap();
           updateStockistList();
         });
