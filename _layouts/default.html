@@ -1,190 +1,862 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="Breeder's Choice Packaged Woodshavings - Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.">
+    <meta name="keywords" content="woodshavings, animal bedding, horse bedding, poultry bedding, pine shavings, kiln dried shavings, dust extracted shavings, chicken bedding, stable bedding, animal litter, pet bedding, livestock bedding, horse stable bedding, chicken coop bedding, small animal bedding">
+    <meta name="author" content="Breeder's Choice">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Breeder's Choice Packaged Woodshavings - Premium Animal Bedding">
+    <meta property="og:description" content="Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort.">
+    <meta property="og:image" content="/images/logo2.png">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Breeder's Choice Packaged Woodshavings">
+    <meta name="twitter:description" content="Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health.">
+    <meta name="twitter:image" content="/images/logo2.png">
 
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
 
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/17357694a0.js" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <style type="text/css">
-
-      #wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: min-content auto;
-        height: 100vh;
+      :root {
+        --primary-color: #156d38;
+        --secondary-color: #1daf0e;
+        --dark-color: #404040;
+        --light-color: #ffffff;
+        --accent-color: #6f94b6;
+        --section-padding: 5rem 0;
+        --transition-smooth: all 0.3s ease-in-out;
+        --text-dark: #333333;
+        --text-light: #ffffff;
+        --line-height-base: 1.6;
       }
 
-    #navigation {
+      body {
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        overflow-x: hidden;
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+        line-height: var(--line-height-base);
+        font-size: 1rem;
+      }
+
+      /* Typography */
+      h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      
+      p {
+        margin-bottom: 1.25rem;
+        font-size: 1.05rem;
+      }
+      
+      .lead {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+      
+      .display-4 {
+        font-weight: 700;
+      }
+
+      /* Hero Section */
+      #intro {
+        background: var(--dark-color) url('/images/back1.jpg') 50% 0 no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      
+      #intro .logo-container {
+        max-width: 100%;
+        padding: 2rem;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin-bottom: 2rem;
+      }
+      
+      #intro .logo {
+        max-width: 100%;
+        height: auto;
+        transition: var(--transition-smooth);
+      }
+
+      #intro .logo:hover {
+        transform: scale(1.02);
+      }
+
+      /* Navigation */
+      .floating-nav {
         position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50px;
+        padding: 15px 5px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition-smooth);
+      }
+
+      .floating-nav .nav-link {
+        color: var(--dark-color);
+        margin: 10px 0;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+
+      .floating-nav .nav-link:hover, 
+      .floating-nav .nav-link.active {
+        background-color: var(--primary-color);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      @keyframes vibrate {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
+        75% { transform: rotate(-1deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      .floating-nav .nav-link:active i {
+        animation: vibrate 0.3s ease-in-out;
+      }
+
+      .call-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50px;
+        padding: 10px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: var(--transition-smooth);
+      }
+
+      .call-button:hover {
+        transform: scale(1.05);
+        background-color: var(--secondary-color);
+      }
+
+      /* Products Section */
+      #products {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        background-color: var(--primary-color);
+        width: 100%;
+      }
+
+      #products video {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: contain;
+        max-height: 100%;
+      }
+      
+      #products .video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: var(--primary-color);
+      }
+      
+      #products .video-controls-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+      }
+      
+      #products .custom-controls {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+      }
+      
+      #products .control-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+      
+      #products .control-btn:hover {
+        color: var(--secondary-color);
+      }
+
+      /* Features Section */
+      #shavings {
+        background: var(--secondary-color) url('/images/back3.jpg') 50% 50% no-repeat fixed;
+        background-size: cover;
+        color: white;
+        padding: var(--section-padding);
+        position: relative;
+      }
+
+      #shavings::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
         right: 0;
-        text-align: center;
+        bottom: 0;
+        background-color: rgba(21, 109, 56, 0.85);
+        z-index: 0;
+      }
+
+      #shavings .container {
+        position: relative;
         z-index: 1;
-    }
+      }
 
-    .call-button {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-    }
+      #shavings figure {
+        margin: 0;
+        position: relative;
+      }
 
-    #shavings ul li h3::before {
-      content: "\f058";
-      font-family: "Font Awesome 5 Free";
-      padding: 0 10px 0 0;
-    }
+      #shavings figure img {
+        border-radius: 0;
+        box-shadow: none;
+      }
 
-    #intro {
-        background: #404040 url('/images/back1.jpg') 50% 0 repeat;
-        grid-row: 1;
-    }
+      #shavings figcaption {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+        margin: 1.5rem auto 0;
+        line-height: 1.4;
+        position: relative;
+        z-index: 2;
+      }
 
-    #products {
-      background: #FFFFFF url('/images/bales.jpg') 50% 50% repeat fixed;
-      grid-row: 2;
-    }
+      .feature-card {
+        background-color: rgba(255, 255, 255, 0.97);
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 20px;
+        transition: var(--transition-smooth);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
 
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
 
-    #products div {
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      background-color: #156d38;
-    }
+      .feature-card h3 {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+      }
 
-    video {
-      position:absolute;
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
+      .feature-card h3::before {
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        padding: 0 15px 0 0;
+        color: var(--secondary-color);
+        font-size: 1.5rem;
+      }
 
-    .listContainer {
-      display: flex;
-    }
+      .feature-card p {
+        color: var(--text-dark);
+        font-size: 1.05rem;
+        line-height: var(--line-height-base);
+      }
 
-    .listContainer img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #shavings {
-        background: #1daf0e url('/images/back3.jpg') 50% 50% repeat fixed;
+      /* Stockists Section */
+      #stockists {
+        padding: 0;
+        background-color: #f8f9fa;
+        margin-bottom: 0;
+      }
+      
+      #stockists + section {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      
+      #stockists .lead {
+        max-width: 700px;
+        margin: 0 auto 1rem;
+      }
+      
+      #stockists .search-container {
+        background: white;
+        border-radius: 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        margin-bottom: 0;
+        z-index: 2;
+        position: relative;
+      }
+      
+      #stockists .form-control,
+      #stockists .form-select {
+        height: 48px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        transition: var(--transition-smooth);
+      }
+      
+      #stockists .form-control:focus,
+      #stockists .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(21, 109, 56, 0.1);
+      }
+      
+      #stockistsMap {
+        height: 70vh;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+      }
+      
+      #stockists .stockist-card {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        transition: var(--transition-smooth);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: none;
+      }
+      
+      #stockists .stockist-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      #stockists .stockist-card .card-title {
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      #stockists .stockist-card .card-text {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+      
+      #stockists .no-results {
+        font-size: 1.1rem;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      /* Map/List Toggle Button Styling */
+      .stockists-view {
+        z-index: 2;
+      }
+      
+      #stockists .btn-outline-primary {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        padding: 0.5rem 1.5rem;
+        font-weight: 500;
+      }
+      
+      #stockists .btn-outline-primary:hover,
+      #stockists .btn-check:checked + .btn-outline-primary {
+        background-color: var(--primary-color);
         color: white;
-    }
+      }
 
-    #stockists .header {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .stockists-list.invisible {
-      display: none;
-    }
-
-    #stockistsMap {
-      height: 600px;
-    }
-
-    #stockistsMap .card {
-      width: 18rem;
-      border: 0;
-    }
-
-    #stockistsMap .card-body {
-      margin: 0;
-      padding: 0;
-    }
-
-    #stockistsList .card {
-      border: 1px;
-    }
-
-    #about {
-        background: #404040 url('/images/back4.jpg') 50% 0 repeat fixed;
-        padding-top: 40px;
-    }
-
-    #contact {
-        background-color: #404040;
-    }
-
-    #contact h1 {
+      /* Map markers styling */
+      .map-marker {
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
-    }
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
 
-    #footer {
-        background: #404040 url('/images/footer.jpg') top center;
-        height: 37px;
-        border-bottom: 4px solid white;
-    }
+      .map-marker:hover,
+      .map-marker.active {
+        background-color: var(--secondary-color);
+        transform: scale(1.1);
+      }
 
-    #about .lead {
+      #autocomplete {
+        width: 100%;
+        min-height: 48px; /* Match height of select input */
+        display: block;
+      }
+      
+      gmp-place-autocomplete {
+        display: block;
+        width: 100%;
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        height: 48px; /* Match height of select input */
+        border-radius: 0.375rem;
+        border: 1px solid #ced4da;
+      }
+      
+      #stockists .place-card {
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      
+      @media (max-width: 768px) {
+        #stockistsMap {
+          height: 50vh;
+        }
+        
+        #stockists .search-container {
+          padding: 1rem;
+        }
+        
+        #stockists .btn-outline-primary {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+        
+        #shavings figcaption {
+          font-size: 1.25rem;
+          padding: 0 1rem;
+        }
+      }
+
+      /* About Section */
+      #about {
+        background: var(--dark-color) url('/images/back4.jpg') top center no-repeat fixed;
+        background-size: cover;
         color: white;
-        background: rgb(0, 0, 0) transparent;
-        background: rgba(0, 0, 0, 0.8);
-    }
+        padding: var(--section-padding);
+        position: relative;
+      }
 
-    .nav-link {
-      position: relative;
-    }
+      #about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 0;
+      }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -35px 0 0 -35px;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      opacity: 0;
-      pointer-events: none;
-    }
+      #about .container {
+        position: relative;
+        z-index: 1;
+      }
 
-    .nav-link::after {
-      border: 2px solid rgba(111,148,182,0.5);
-    }
+      #about .bg-dark {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+      }
+      
+      #about p {
+        color: var(--text-light);
+        font-size: 1.05rem;
+        line-height: var(--line-height-base);
+      }
 
-    .nav-link.click::after {
-      -webkit-animation: anim-effect-jelena 0.3s ease-out forwards;
-      animation: anim-effect-jelena 0.3s ease-out forwards;
-    }
+      /* Contact Section */
+      #contact {
+        background-color: var(--dark-color);
+        padding: var(--section-padding);
+        color: white;
+      }
+      
+      #contact .lead {
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
 
-    @-webkit-keyframes anim-effect-jelena {
-      0% {
+      #contact .card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 10px;
+        transition: var(--transition-smooth);
+      }
+
+      #contact .card:hover {
+        transform: translateY(-5px);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      
+      #contact .card-body {
+        padding: 2rem;
+      }
+      
+      #contact .h4 {
+        color: var(--text-light);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      #contact .list-group-item {
+        background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+      }
+
+      #contact .list-group-item a {
+        color: white;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      #contact .list-group-item a:hover {
+        color: var(--secondary-color);
+      }
+      
+      #contact .list-group-item i {
+        color: var(--secondary-color);
+        width: 25px;
+        text-align: center;
+      }
+
+      /* Footer */
+      #footer {
+        background: var(--dark-color) url('/images/footer.jpg') center center;
+        background-size: cover;
+        position: relative;
+      }
+
+      #footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 0;
+      }
+
+      #footer .container {
+        position: relative;
+        z-index: 1;
+      }
+      
+      #footer p {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+      }
+
+      #footer a {
+        color: white;
+        opacity: 0.9;
+        transition: var(--transition-smooth);
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      #footer a:hover {
         opacity: 1;
-        -webkit-transform: scale3d(0.5, 0.5, 1);
-        transform: scale3d(0.5, 0.5, 1);
+        color: var(--secondary-color);
       }
-      to {
-        opacity: 0;
-        -webkit-transform: scale3d(1.2, 1.2, 1);
-        transform: scale3d(1.2, 1.2, 1);
-      }
-    }
 
-    @keyframes anim-effect-jelena {
-      0% {
-        opacity: 1;
-        -webkit-transform: scale3d(0.5, 0.5, 1);
-        transform: scale3d(0.5, 0.5, 1);
+      @media (max-width: 768px) {
+        #footer {
+          padding-bottom: 70px; /* Add padding to account for mobile navigation */
+        }
+        
+        #footer .text-md-end {
+          margin-top: 1rem;
+        }
       }
-      to {
-        opacity: 0;
-        -webkit-transform: scale3d(1.2, 1.2, 1);
-        transform: scale3d(1.2, 1.2, 1);
-      }
-    }
 
+      /* Animations and Effects */
+      .section-title {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 50px;
+        height: 3px;
+        background-color: var(--secondary-color);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .floating-nav {
+          right: 10px;
+        }
+        
+        .floating-nav .nav-link {
+          width: 40px;
+          height: 40px;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+        
+        .lead {
+          font-size: 1.15rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #intro {
+          min-height: 60vh;
+          padding: 40px 0;
+        }
+        
+        #intro .logo-container {
+          padding: 1rem;
+          padding-bottom: 0;
+          max-width: 95%;
+          margin: 0 auto 2rem;
+        }
+        
+        #intro .logo {
+          width: 100%;
+          max-width: none;
+          transform: scale(1.2);
+          transform-origin: center;
+        }
+        
+        #intro .logo:hover {
+          transform: scale(1.22);
+        }
+        
+        #intro .btn-lg {
+          font-size: 1rem;
+          padding: 0.5rem 1.25rem;
+        }
+        
+        .floating-nav {
+          bottom: 0;
+          right: 0;
+          top: auto;
+          transform: none;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          border-radius: 0;
+          padding: 8px 5px;
+        }
+        
+        .floating-nav .nav-link {
+          margin: 0 3px;
+          width: 36px;
+          height: 36px;
+        }
+        
+        #products {
+          height: 60vh;
+        }
+        
+        #products .control-btn {
+          font-size: 1.25rem;
+          margin: 0 8px;
+        }
+        
+        #products .video-controls-overlay {
+          bottom: 70px; /* Position above the mobile navigation bar */
+        }
+        
+        .display-4 {
+          font-size: calc(1.4rem + 1.5vw);
+        }
+        
+        h2 {
+          font-size: 1.8rem;
+        }
+        
+        h3 {
+          font-size: 1.5rem;
+        }
+        
+        .call-button {
+          font-size: 0.95rem;
+          padding: 8px 15px;
+        }
+        
+        .feature-card {
+          padding: 20px;
+        }
+      }
+
+      /* Portrait mode specific */
+      @media (max-width: 768px) and (orientation: portrait) {
+        #products {
+          height: 50vh; /* Shorter height in portrait mode */
+          width: 100vw; /* Full width */
+        }
+        
+        #products video {
+          width: 100%; /* Ensure full width */
+          object-fit: contain; /* Show all content without cropping */
+          object-position: center; /* Center the video content */
+        }
+        
+        #products .video-container {
+          width: 100vw; /* Full viewport width */
+          max-width: 100%; /* Prevent overflow */
+        }
+      }
+      
+      /* Landscape mode specific */
+      @media (max-width: 768px) and (orientation: landscape) {
+        #products {
+          height: 75vh; /* Taller in landscape to showcase more video */
+          width: 100vw; /* Full width */
+        }
+        
+        #products video {
+          width: 100%; /* Ensure full width */
+          max-height: 100%; /* Maintain aspect ratio */
+          object-fit: contain; /* Show all content without cropping */
+        }
+        
+        #intro {
+          min-height: 40vh; /* Adjust intro section height in landscape */
+        }
+        
+        #products .video-controls-overlay {
+          bottom: 20px; /* Adjust control position in landscape */
+        }
+        
+        .floating-nav {
+          width: auto;
+          height: 100%;
+          bottom: auto;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          flex-direction: column;
+          border-radius: 30px;
+        }
+        
+        .floating-nav .nav-link {
+          margin: 5px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        #intro {
+          padding: 30px 0;
+        }
+        
+        #intro .logo {
+          max-width: 95%;
+        }
+        
+        .call-button {
+          font-size: 0.9rem;
+          padding: 8px 15px;
+          top: 10px;
+          left: 10px;
+        }
+        
+        .feature-card {
+          padding: 20px 15px;
+        }
+        
+        .feature-card h3 {
+          font-size: 1.2rem;
+        }
+        
+        #contact .card-body {
+          padding: 1.5rem 1rem;
+        }
+      }
+
+      #about .about-item {
+        transition: var(--transition-smooth);
+      }
+      
+      #about .about-item:hover {
+        transform: translateX(10px);
+      }
+      
+      #about .about-item i {
+        transition: var(--transition-smooth);
+      }
+      
+      #about .about-item:hover i {
+        transform: scale(1.1);
+      }
+      
+      #about .section-title {
+        padding-top: 2rem;
+      }
+      
+      @media (max-width: 768px) {
+        #about .about-item:hover {
+          transform: none;
+        }
+      }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8HMDPDZ3T"></script>
@@ -198,108 +870,171 @@
     {% seo %}
 </head>
 <body>
-    
-  <div id="navigation" class="card">
-    <div class="nav flex-column nav-pills" aria-orientation="vertical">
-      <a href="tel:+613 5232 2200" class="btn btn-primary active nav-link"><i class="fa fa-phone fa-2x" title="Call"></i></a>
-      <a class="nav-link" href="#intro"><i class="fa fa-home fa-2x" title="Home"></i></a>
-      <a class="nav-link" href="#shavings"><i class="fa fa-tag fa-2x" title="Products"></i></a>
-      <a class="nav-link" href="#stockists"><i class="fa fa-search fa-2x" title="Stockists"></i></a>
-      <a class="nav-link" href="#about"><i class="fa fa-info-circle fa-2x" title="About Us"></i></a>
-      <a class="nav-link" href="#contact"><i class="fa fa-envelope fa-2x" title="Contact"></i></a>
-      
-    </div>
+  <!-- Call Button -->
+  <a href="tel:+613 5232 2200" class="call-button text-decoration-none">
+    <i class="fa fa-phone me-2"></i> Call Us: (03) 5232 2200
+  </a>
+  
+  <!-- Navigation -->
+  <div class="floating-nav">
+    <a class="nav-link active" href="#intro" data-bs-toggle="tooltip" data-bs-placement="left" title="Home">
+      <i class="fa fa-home"></i>
+    </a>
+    <a class="nav-link" href="#products" data-bs-toggle="tooltip" data-bs-placement="left" title="Video">
+      <i class="fa fa-play-circle"></i>
+    </a>
+    <a class="nav-link" href="#shavings" data-bs-toggle="tooltip" data-bs-placement="left" title="Products">
+      <i class="fa fa-tag"></i>
+    </a>
+    <a class="nav-link" href="#stockists" data-bs-toggle="tooltip" data-bs-placement="left" title="Stockists">
+      <i class="fa fa-search"></i>
+    </a>
+    <a class="nav-link" href="#about" data-bs-toggle="tooltip" data-bs-placement="left" title="About Us">
+      <i class="fa fa-info-circle"></i>
+    </a>
+    <a class="nav-link" href="#contact" data-bs-toggle="tooltip" data-bs-placement="left" title="Contact">
+      <i class="fa fa-envelope"></i>
+    </a>
   </div>
   
-  <div id="wrapper">
-    <section id="intro">
-      <div class="container">
-          <div class="d-flex justify-content-center" >
-            <img width="800" height="317" src="/images/logo2.png" alt="Breeder's Choice Packaged Woodshavings" class="img-fluid rounded logo align-self-end" />
+  <!-- Hero Section -->
+  <section id="intro" class="d-flex align-items-center" aria-label="Welcome">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="logo-container">
+            <img src="/images/logo2.png" alt="Breeder's Choice Packaged Woodshavings - Premium Animal Bedding" class="logo img-fluid mb-4" width="600" height="200">
           </div>
-      </div>
-      
-    </section>
-
-    <section id="products">
-      <div>
-      <video autoplay muted controls loop>
-        <source src="/images/video.webm" type="video/webm" />
-      </video>
-    </div>
-    </section>
-  </div>
-  
-  <section id="shavings" class="pt-5">
-
-      <div class="container lead">
-
-        <p>Breeder's Choice woodshavings are a high-grade product which is suitable for use as a
-          bedding litter in horse stables, chicken nests and sheds, calf sheds and various other animal
-          enclosures.</p>
-                  <p>Our standard bale weighs 14kg and provides approximately 0.2 cubic metres of volume when uncompressed.</p>
-                  <p>The benefits of our baled woodshavings are:</p>
-        <div class="row listContainer">
-          
-          <div class="col col-12 col-lg-6 mb-5">
-            <div class="rounded-lg lead">
-              <ul class="list-group rounded">
-                <li class="list-group-item">
-                  <h3>Screened &amp; Dust Extracted</h3>
-
-                  <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
-reactive airway disease in animals. Using a purpose built ‘trommel’ screen, we are able
-to remove a higher proportion of the sawdust and ensure we are producing a superior
-quality product.</p>
-                </li>
-                <li class="list-group-item">
-                  <h3>Kiln dried for better absorbency</h3>
-
-                  <p>The woodshavings are a by-product from the timber milling process and have been kiln
-dried to achieve a moisture content of between 8% and 12%.</p>
-                </li>
-                <li class="list-group-item">
-                  <h3>All-natural product</h3>
-
-                  <p>The shavings are all natural and free of any chemical additives.</p>
-                </li>
-                <li class="list-group-item">
-                  <h3>Clean &amp; hygienic</h3>
-
-                  <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
-used for transporting our shavings, which reduces the risk of contaminants in our
-shavings.</p>
-                </li>
-              </ul>
-            </div>
-            
-          </div>
-          <div class="col mb-5">
-            <img src='/images/bales.jpg' class="rounded" alt="Breeder's Choice Packaged Woodshavings" />
+          <div class="mt-4">
+            <a href="#shavings" class="btn btn-lg btn-success rounded-pill px-4 shadow-sm fw-bold">
+              Discover Our Products <i class="fas fa-chevron-down ms-2" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
-
+    </div>
   </section>
 
-    <section id="stockists">
-    <div class="form container">
+  <!-- Products Video Section -->
+  <section id="products" aria-label="Product Video">
+    <div class="video-container">
+      <video id="productVideo" autoplay muted loop playsinline>
+        <source src="/images/video.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay"></div>
+      <div class="video-controls-overlay">
+        <div class="custom-controls">
+          <button id="playPauseBtn" class="control-btn" aria-label="Play/Pause">
+            <i class="fas fa-play" aria-hidden="true"></i>
+          </button>
+          <button id="muteBtn" class="control-btn" aria-label="Mute/Unmute">
+            <i class="fas fa-volume-mute" aria-hidden="true"></i>
+          </button>
+          <button id="fullscreenBtn" class="control-btn" aria-label="Fullscreen">
+            <i class="fas fa-expand" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section id="shavings" aria-label="Product Features">
+    <div class="container" data-aos="fade-up">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-4 fw-bold mb-4">Premium Woodshavings</h1>
+          <p class="lead">
+            Breeder's Choice woodshavings are a high-grade product suitable for use as bedding litter in horse stables, 
+            chicken nests and sheds, calf sheds and various other animal enclosures. Our premium pine shavings provide
+            superior absorbency and comfort for all types of animals.
+          </p>
+          <p class="mb-4">
+            Our standard bale weighs 14kg and provides approximately 0.2 cubic metres of volume when uncompressed.
+            Perfect for easy storage and handling in any agricultural or pet care setting.
+          </p>
+          <h2 class="mb-4">The benefits of our baled woodshavings are:</h2>
+        </div>
+      </div>
+      
       <div class="row">
-        <div class="col">
-          <div class="header rounded-lg mt-5 lead">
-            <h1>Stockists</h1>
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <article class="feature-card h-100">
+            <h3>Screened &amp; Dust Extracted</h3>
+            <p>Our shavings have been screened to remove harmful dusts and reduce the incidence of
+               reactive airway disease in animals. Using a purpose built 'trommel' screen, we are able
+               to remove a higher proportion of the sawdust and ensure we are producing a superior
+               quality product. This makes our bedding ideal for sensitive animals and enclosed spaces.</p>
+          </article>
+        </div>
+        
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <article class="feature-card h-100">
+            <h3>Kiln dried for better absorbency</h3>
+            <p>The woodshavings are a by-product from the timber milling process and have been kiln
+               dried to achieve a moisture content of between 8% and 12%. This low moisture content
+               ensures maximum absorbency and helps maintain a dry, healthy environment for your animals.</p>
+          </article>
+        </div>
+        
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <article class="feature-card h-100">
+            <h3>All-natural product</h3>
+            <p>The shavings are all natural and free of any chemical additives, making them safe for
+               all types of animals. Our pine shavings are sourced from sustainable plantations and
+               provide a comfortable, natural bedding solution that's environmentally friendly.</p>
+          </article>
+        </div>
+        
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+          <article class="feature-card h-100">
+            <h3>Clean &amp; hygienic</h3>
+            <p>We use our own trucks and trailers to transport the raw product. Our trailers are only
+               used for transporting our shavings, which reduces the risk of contaminants in our
+               shavings. This ensures a clean, hygienic bedding solution for your animals' health and comfort.</p>
+          </article>
+        </div>
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-12 p-0">
+          <figure class="text-center" data-aos="zoom-in" data-aos-delay="200">
+            <img src="/images/bales.jpg" class="img-fluid w-100" alt="Breeder's Choice Packaged Woodshavings bales ready for distribution - Premium animal bedding for horses, poultry, and small animals" width="1920" height="1080" style="object-fit: cover; max-height: 70vh;">
+            <figcaption class="mt-3 text-white h4 fw-light">Premium quality woodshavings packaged for optimal storage and handling</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <h4>Enter your location or suburb to find your closest Breeder's Choice stockist. <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-primary"> Become a Stockist</a></h4>
-
-            <div class="row">
-              <div class="col col-12 col-md-5">
-                <div class="input-group mb-2" id="autocomplete">
-                  <!-- <input type="search" class="form-control" id="location" placeholder="Enter your location">-->
-                  <!-- <div class="input-group-text"><i class="fas fa-crosshairs"></i></div>  -->
+  <!-- Stockists Section -->
+  <section id="stockists" class="bg-light" aria-label="Find a Stockist">
+    <div class="container-fluid p-0" data-aos="fade-up">
+      <div class="row mb-0">
+        <div class="col-12 text-center p-4 bg-white">
+          <h2 class="display-4 fw-bold mb-4">Find a Stockist</h2>
+          <p class="lead">Enter your location to find your closest Breeder's Choice stockist.</p>
+          <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="btn btn-success rounded-pill px-4 mb-3">
+            <i class="fas fa-store me-2" aria-hidden="true"></i> Become a Stockist
+          </a>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center mb-0">
+        <div class="col-lg-8 col-md-10">
+          <div class="search-container bg-white p-4 mb-0 shadow-sm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="autocomplete" class="visually-hidden">Enter your location</label>
+                <div id="autocomplete" class="form-control p-0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                  <!-- Autocomplete will be inserted here -->
                 </div>
               </div>
-              <div class="col col-12 col-md-5">
-                <select id="search-radius" class="form-select" id="radius">
+              
+              <div class="col-md-6">
+                <label for="search-radius" class="visually-hidden">Search radius</label>
+                <select id="search-radius" class="form-select" aria-label="Search radius">
                   <option value="10000">Within 10 km</option>
                   <option value="25000">Within 25 km</option>
                   <option value="50000">Within 50 km</option>
@@ -307,134 +1042,274 @@ shavings.</p>
                   <option value="250000">Within 250 km</option>
                 </select>
               </div>
-              <div class="col col-12 col-md-2 my-2 my-md-0 toggle-map-or-list invisible">
-                <div class="btn-group btn-group-toggle stockists-view" role="group">
-                  <input type="radio" name="options" autocomplete="off" id="map" checked class="btn-check"> 
-                  <label class="btn btn-secondary" for="map"><i class="fas fa-map-marker"></i></label>
-                  <input type="radio" name="options" autocomplete="off" id="list" class="btn-check"> 
-                  <label class="btn btn-secondary" for="list"><i class="fas fa-list"></i></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-0">
+        <div class="col-12 p-0 position-relative">
+          <div class="d-flex justify-content-center py-3 bg-white shadow-sm">
+            <div class="btn-group btn-group-toggle stockists-view" role="group" aria-label="View options">
+              <input type="radio" name="options" autocomplete="off" id="map" checked class="btn-check">
+              <label class="btn btn-outline-primary" for="map"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Map View</label>
+              <input type="radio" name="options" autocomplete="off" id="list" class="btn-check">
+              <label class="btn btn-outline-primary" for="list"><i class="fas fa-list" aria-hidden="true"></i> List View</label>
+            </div>
+          </div>
+          
+          <div id="stockistsMap" class="w-100" style="height: 70vh;" role="application" aria-label="Stockist locations map">
+            <!-- Google Maps will be loaded here -->
+          </div>
+        </div>
+      </div>
+      
+      <div id="stockistsList" class="stockists-list invisible mt-0" role="region" aria-label="Stockist list">
+        <div class="container py-4">
+          <div class="no-results alert alert-info" role="alert">
+            There are currently no results. Try searching by location or increasing your search radius.
+          </div>
+          <div class="row results">
+            <!-- Stockist results will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" aria-label="About Breeder's Choice">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-title text-center mb-5">
+            <h2 class="display-4 fw-bold mb-4 text-white">About Us</h2>
+          </div>
+          <article class="bg-dark bg-opacity-75 p-4 p-md-5 rounded shadow">
+            <div class="about-content">
+              <div class="about-item mb-4">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-history fa-2x me-3 text-success"></i>
+                  <h3 class="h4 text-white mb-0">Our History</h3>
                 </div>
+                <p class="lead">
+                  Breeder's Choice Woodshavings is a family owned business that has been operating in Colac
+                  (Victoria) since 1994. Colac is located in the western district of Victoria, on the edge of the
+                  Otways, which is one of the largest pine plantations in Australia.
+                </p>
               </div>
+
+              <div class="about-item mb-4">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-industry fa-2x me-3 text-success"></i>
+                  <h3 class="h4 text-white mb-0">Our Process</h3>
+                </div>
+                <p>
+                  The sole business activity of Breeder's Choice is the packaging and sale of kiln-dried pine
+                  woodshavings. All shavings go through a screening process to remove the smaller flakes
+                  and sawdust, thus providing a high-grade product and ensuring very good absorbency. Our
+                  commitment to quality has made us a trusted supplier for animal bedding across Australia.
+                </p>
+              </div>
+
+              <div class="about-item mb-4">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-medal fa-2x me-3 text-success"></i>
+                  <h3 class="h4 text-white mb-0">Quality Standards</h3>
+                </div>
+                <p>
+                  As our main customers are in the poultry, equine and cattle industries, it is imperative that
+                  our shavings are clean, hygienic, and come from only kiln dried radiata pine, with a moisture
+                  content of between 8% and 12%. This ensures the best possible bedding solution for animal
+                  health and comfort.
+                </p>
+              </div>
+
+              <div class="about-item">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-map-marked-alt fa-2x me-3 text-success"></i>
+                  <h3 class="h4 text-white mb-0">Nationwide Coverage</h3>
+                </div>
+                <p>
+                  We have supplied our packaged shavings into every state of Australia. Please search the
+                  'stockists' section of our website to find a seller of Breeder's Choice Woodshavings in your
+                  area. Our network of stockists ensures you can easily access our premium bedding products
+                  wherever you are in Australia.
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="stockistsList" class="stockists-list invisible">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="rounded-lg m-3">
-              <div class="no-results">There are currently no results. Try searching by location or increasing your search radius.</div>
-              <div class="container">
-                <div class="row results"></div>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" data-speed="6" data-type="background">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-           <div class="p-5 rounded-lg m-3 lead rounded">
-       <h1>About Us</h1>
-       <p>Breeder's Choice Woodshavings is a family owned business that has been operating in Colac
-(Victoria) since 1994. Colac is located in the western district of Victoria, on the edge of the
-Otways, which is one of the largest pine plantations in Australia.</p>
-   <p>The sole business activity of Breeder's Choice is the packaging and sale of kiln-dried pine
-woodshavings. All shavings go through a screening process to remover the smaller flakes
-and sawdust, thus providing a high-grade product and ensuring very good absorbency.</p>
-   <p>As our main customers are in the poultry, equine and cattle industries, it is imperative that
-our shavings are clean, hygienic, and come from only kiln dried radiata pine, with a moisture
-content of between 8% and 12%.</p>
-   <p>We have supplied our packaged shavings into every state of Australia. Please search the
-'stockists' section of our website to find a seller of Breeder's Choice Woodshavings in your
-area.</p>
-           </div>
-          </div>
+  <!-- Contact Section -->
+  <section id="contact" aria-label="Contact Information">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="display-4 fw-bold mb-4">Contact Us</h2>
+          <p class="lead">Have questions? We're here to help! Contact us using any of the methods below.</p>
         </div>
       </div>
-
+      
+      <div class="row justify-content-center">
+        <div class="col-md-5 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+          <article class="card h-100">
+            <div class="card-body p-4">
+              <h3 class="h4 mb-4 text-center">Get In Touch</h3>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fa fa-at fa-lg me-3" aria-hidden="true"></i>
+                  <a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}" class="text-reset text-decoration-none">Email Us</a>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fa fa-phone fa-lg me-3" aria-hidden="true"></i>
+                  <a href="tel:+613 5232 2200" class="text-reset text-decoration-none">+613 5232 2200</a>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fa fa-fax fa-lg me-3" aria-hidden="true"></i>
+                  <span>+613 5232 2270</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+          <article class="card h-100">
+            <div class="card-body p-4">
+              <h3 class="h4 mb-4 text-center">Our Address</h3>
+              <address class="list-group list-group-flush mb-0">
+                <div class="list-group-item d-flex align-items-center">
+                  <i class="fa fa-envelope fa-lg me-3" aria-hidden="true"></i>
+                  <span>Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia</span>
+                </div>
+                <div class="list-group-item d-flex align-items-center">
+                  <i class="fa fa-map-marker-alt fa-lg me-3" aria-hidden="true"></i>
+                  <span>92-98 Forest St, Colac, VIC 3250</span>
+                </div>
+              </address>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
+  <!-- Footer -->
+  <footer id="footer" role="contentinfo">
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="p-5 rounded-lg m-3">
-            <h1>Contact</h1>
-
-            <div class="row">
-              <div class="col-lg">
-
-            <div class="card">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="mailto:{{ 'jarrod@breederschoice.com.au' | encode_email }}"><i class="fa fa-at fa-lg" title="Email"></i> Email</a></li>
-                <li class="list-group-item"><a href="tel:+613 5232 2200"><i class="fa fa-phone fa-lg" title="Call"></i> +613 5232 2200</a></li>
-                <li class="list-group-item"><i class="fa fa-fax fa-lg" title="Fax"></i>  +613 5232 2270</li>
-              </ul>
-            </div>
-
-              </div><div class="col-lg">
-
-            <div class="card">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><i class="fa fa-envelope fa-lg" title="Mail"></i>  Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia</li>
-                <li class="list-group-item"><i class="fa fa-map-marker-alt fa-lg" title="Location"></i>  92-98 Forest St, Colac, VIC 3250</li>
-              </ul>
-            </div>
-
-
-              </div>
-            </div>
-
-          </div>
+      <div class="row align-items-center py-4">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white mb-0">&copy; 2023 Breeder's Choice Woodshavings. All Rights Reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <a href="http://www.zackdesign.biz" target="_blank" class="text-white me-4" rel="noopener">Website by Zack Design</a>
+          <a href="https://superiorshavings.com.au" target="_blank" class="text-white" rel="noopener">Superior Shavings</a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section id="footer" class="text-right">
-    <a target="_blank" href="http://www.zackdesign.biz" class="badge badge-light">Website by Zack Design</a>
-    <a target="_blank" href="https://superiorshavings.com.au" class="badge badge-light">Superior Shavings</a>
-  </section>
-
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- jQuery CSV -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Google Maps API -->
     <script>
       (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
         key: "AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8",
         v: "beta",
+        libraries: "places"
       });
     </script>
+    
+    <!-- Custom JS -->
     <script type="text/javascript">
+      // Initialize AOS animations
+      $(document).ready(function() {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+        });
+        
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
 
+        // Add click effect to navigation icons
+        $('.floating-nav .nav-link').on('click', function() {
+          const icon = $(this).find('i');
+          icon.css('animation', 'none');
+          setTimeout(() => {
+            icon.css('animation', '');
+          }, 10);
+        });
+      });
+
+      // Stockists and Map functionality
       let stockists = [];
-      let map = {};
-      let autocomplete = undefined;
+      let map;
       let place = undefined;
       let radius = 10000;
       let markers = [];
       let infoWindows = [];
       let stockistListContent = [];
-      let searchArea = undefined;
 
-      let updateStockistList = () => {};
+      let updateStockistList = () => {
+        if (stockistListContent.length) {
+          $('.no-results').hide();
+          $(".toggle-map-or-list").removeClass('invisible');
+        } else {
+          $('.no-results').show();
+        }
+        $(`#stockistsList .results`).html(stockistListContent.join(""));
+      };
+
+      // New function to show all stockists in list view
+      const showAllStockistsInList = () => {
+        // Clear current list
+        stockistListContent = [];
+        
+        // Add all stockists content to the list
+        infoWindows.forEach(infoWindow => {
+          if (infoWindow) {
+            stockistListContent.push(infoWindow.getContent());
+          }
+        });
+        
+        // Update the list
+        updateStockistList();
+      };
 
       const searchMap = async () => {
         if (!place || !place.location) {
+          // If no place is selected, show all stockists
+          markers.forEach(marker => {
+            if (marker) marker.map = map;
+          });
+          showAllStockistsInList();
           return;
         }
 
         await google.maps.importLibrary("geometry");
 
         resetMap();
+        stockistListContent = [];
 
         const searchArea = new google.maps.Circle({
           center: place.location,
@@ -442,14 +1317,15 @@ area.</p>
         });
 
         markers.forEach((marker, index) => {
-
+          // First hide the marker
+          marker.map = null;
+          
           if (google.maps.geometry.spherical.computeDistanceBetween(
             marker.position, searchArea.getCenter()
           ) <= searchArea.getRadius()) {
             marker.map = map;
             stockistListContent.push(infoWindows[index].getContent());
           }
-
         });
 
         map.fitBounds(searchArea.getBounds());
@@ -457,154 +1333,479 @@ area.</p>
       };
 
       jQuery(document).ready(function($) {
+        // Smooth scrolling for navigation links
+        $('.nav-link').on('click', function(e) {
+          if (this.hash !== '') {
+            e.preventDefault();
+            const hash = this.hash;
+            
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function() {
+              window.location.hash = hash;
+            });
+          }
+        });
+        
+        // Active navigation state on scroll
+        $(window).scroll(function() {
+          let position = $(this).scrollTop();
+          
+          $('section').each(function() {
+            let target = $(this).offset().top - 100;
+            let id = $(this).attr('id');
+            
+            if (position >= target) {
+              $('.floating-nav .nav-link').removeClass('active');
+              $('.floating-nav .nav-link[href="#' + id + '"]').addClass('active');
+            }
+          });
+        });
 
         const populateMap = async () => {
-          const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-          stockists.forEach((stockist) => {
-            const stockistLatLong = { lat: parseFloat(stockist.Latitude), lng: parseFloat(stockist.Longitude) };
-            const contentString = `
-              <div class="col col-md-4">
-                <div class="card">
+          if (!map) return; // Ensure map is initialized
+          
+          try {
+            // Import the marker library
+            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+            
+            stockists.forEach((stockist) => {
+              if (!stockist.Latitude || !stockist.Longitude) return;
+              
+              const position = { 
+                lat: parseFloat(stockist.Latitude), 
+                lng: parseFloat(stockist.Longitude) 
+              };
+              
+              const contentString = `
+                <div class="card stockist-card" style="width: 300px; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
                   <div class="card-body">
                     <h5 class="card-title">${stockist.Customer}</h5>
                     <p class="card-text">${stockist['Address 1']}<br />${stockist['Address 2']}</p>
-                    <a href="tel:${stockist.Phone}" class="btn btn-primary"><i class="fas fa-phone"></i> ${stockist.Phone}</a>
+                    <a href="tel:${stockist.Phone}" class="btn btn-success btn-sm fw-medium"><i class="fas fa-phone me-1"></i> ${stockist.Phone}</a>
                   </div>
                 </div>
-              </div>
-            `;
+              `;
 
-            const infoWindow = new google.maps.InfoWindow({
-              content: contentString,
+              const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 320
+              });
+
+              // Create an AdvancedMarkerElement with a proper position and visible on the map
+              const marker = new AdvancedMarkerElement({
+                map: map, // All markers visible by default
+                position: position,
+                title: stockist.Customer,
+                gmpClickable: true,
+              });
+              
+              // Store the infoWindow reference directly on the marker for easy access
+              marker.infoWindow = infoWindow;
+              
+              // Add click listener
+              marker.addEventListener("gmp-click", () => {
+                // Close all currently open infoWindows
+                infoWindows.forEach(iw => {
+                  if (iw) iw.close();
+                });
+                
+                // Open this marker's infoWindow
+                infoWindow.open({
+                  anchor: marker,
+                  map: map
+                });
+              });
+
+              infoWindows.push(infoWindow);
+              markers.push(marker);
             });
-
-            const marker = new AdvancedMarkerElement({
-              position: stockistLatLong,
-              map,
-              title: stockist.Customer,
-              gmpClickable: true,
-            });
-
-            marker.addListener("click", () => {
-              infoWindow.open(map, marker);
-            });
-
-            infoWindows.push(infoWindow);
-            markers.push(marker);
-          });
-        };
-
-        updateStockistList = () => {
-          if (stockistListContent.length) {
-            $('.no-results').hide();
-            $(".toggle-map-or-list").removeClass('invisible');
-          } else {
-            $('.no-results').show();
+          } catch (error) {
+            console.error("Error populating map:", error);
           }
-          $(`#stockistsList .results`).html(stockistListContent.join(""));
         };
 
-        $.get("{{ site.stockistscsv }}", async (data) => {
-          stockists = $.csv.toObjects(data);
-          if (document.getElementById("stockistsMap")) {
-            await populateMap();
+        // Load stockists data with better error handling
+        const loadStockistsData = async () => {
+          try {
+            const response = await fetch("{{ site.stockistscsv }}");
+            if (!response.ok) {
+              throw new Error(`Failed to load stockists data: ${response.status}`);
+            }
+            
+            const data = await response.text();
+            stockists = $.csv.toObjects(data);
+            
+            if (document.getElementById("stockistsMap") && map) {
+              await populateMap();
+            }
+            
+            return stockists;
+          } catch (error) {
+            console.error("Error loading stockists data:", error);
+            return [];
+          }
+        };
+
+        // Replace the old $.get with the new function
+        $(document).ready(async function() {
+          await loadStockistsData();
+          
+          // Initialize map and autocomplete if on stockists page
+          if (document.getElementById("stockistsMap") && !window.mapInitialized) {
+            window.mapInitialized = true;
+            try {
+              await initMap();
+              await loadStockistsData();
+              await initPlacesAutocomplete();
+            } catch (error) {
+              window.mapInitialized = false;
+            }
           }
         });
 
-        $("#search-radius").on('change', async () => {
+        $("#search-radius").on('change', async function() {
           radius = Number($(this).find(":selected").val());
           await searchMap();
           updateStockistList();
         });
 
-        $window = $(window);
-        $('section[data-type="background"]').each(function(){
-            var $bgobj = $(this);
-            $(window).scroll(function() {
-                var yPos = -($window.scrollTop() / $bgobj.data('speed'));
-                var coords = '50% ' + yPos + 'px';
-                $bgobj.css({ backgroundPosition: coords });
-            });
-        });
-
         $('.stockists-view input').click((event) => {
           const type = event.target.id;
           if (type === 'list') {
-            $(`#stockistsList`).show().removeClass('invisible');
-            $(`#stockistsMap`).hide().addClass('invisible');
-            updateStockistList();
+            $(`#stockistsList`).removeClass('invisible').fadeIn();
+            $(`#stockistsMap`).fadeOut();
+            
+            // If no search has been performed yet, show all stockists
+            if (!place || !place.location) {
+              showAllStockistsInList();
+            }
           } else {
-            $(`#stockistsList`).hide().addClass('invisible');
-            $(`#stockistsMap`).show().removeClass('invisible');
-            searchMap();
+            $(`#stockistsList`).addClass('invisible').fadeOut();
+            $(`#stockistsMap`).fadeIn();
+            // Trigger a resize event to ensure the map renders correctly
+            if (map) {
+              google.maps.event.trigger(map, 'resize');
+              // If we have an active search, refit the map
+              if (place && place.location) {
+                searchMap();
+              }
+            }
           }
         });
 
-        // https://tympanus.net/codrops/2015/02/11/subtle-click-feedback-effects/
-        // Thank you!
-        $(".nav-link").click(function() {
-          $(this).addClass("click");
-          window.navigator.vibrate(200);
-
-          var remove = function(button) {
-            $(button).removeClass("click");
-          };
-
-          setTimeout(remove, 300, this);
+        // Parallax effect for background images
+        $(window).scroll(function() {
+          $('section[data-type="background"]').each(function() {
+            var bgobj = $(this);
+            var yPos = -($(window).scrollTop() / bgobj.data('speed'));
+            var coords = '50% ' + yPos + 'px';
+            bgobj.css({ backgroundPosition: coords });
+          });
         });
 
-        // Ensuring we don't load a map until we need to
-        // because otherwise it costs money
-        $window.scroll(async () => {
+        // Initialize map when stockists section is visible
+        $(window).scroll(async () => {
           const top_of_element = $("#stockists").offset().top;
           const bottom_of_element = $("#stockists").offset().top + $("#stockists").outerHeight();
           const bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
           const top_of_screen = $(window).scrollTop();
 
-          if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && !$("#stockistsMap").length){
-            $("<div id='stockistsMap'></div>").insertAfter("#stockists .form.container");
-
-            await initGoogleAPI();
-            await google.maps.importLibrary("places");
-            const placeAutocomplete = new google.maps.places.PlaceAutocompleteElement({
-              componentRestrictions: { country: "au" }
-            });
-
-            $("#autocomplete").append(placeAutocomplete);
+          // Check if map section is visible and map hasn't been initialized yet
+          if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && !window.mapInitialized) {
+            window.mapInitialized = true; // Set flag to prevent multiple initializations
             
-            placeAutocomplete.addEventListener("gmp-placeselect", async ({ place: placeFunction }) => {
-              await placeFunction.fetchFields({
-                fields: ["location"],
+            try {
+              // Initialize the map
+              await initMap();
+              
+              // Load stockist data and populate markers
+              await loadStockistsData();
+              
+              // Prepare list view with all stockists
+              showAllStockistsInList();
+              
+              // Load the Places library and set up autocomplete
+              await initPlacesAutocomplete();
+              
+              // Add resize handler for responsive map
+              $(window).resize(function() {
+                if (map) {
+                  google.maps.event.trigger(map, 'resize');
+                  
+                  // If we have an active search, refit the map
+                  if (place && place.location) {
+                    const searchArea = new google.maps.Circle({
+                      center: place.location,
+                      radius: radius,
+                    });
+                    map.fitBounds(searchArea.getBounds());
+                  }
+                }
               });
-              place = placeFunction
-              await searchMap();
-            });
-
-            await populateMap();
+            } catch (error) {
+              window.mapInitialized = false; // Reset flag if initialization fails
+            }
           }
         });
+        
+        // Initialize Places autocomplete
+        async function initPlacesAutocomplete() {
+          try {
+            // Import the places library
+            const { Autocomplete } = await google.maps.importLibrary("places");
+            
+            // Create a standard input element
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'Enter your location';
+            input.className = 'form-control';
+            
+            // Clear and append the input
+            const container = document.getElementById("autocomplete");
+            container.innerHTML = '';
+            container.appendChild(input);
+            
+            // Create the autocomplete
+            const autocomplete = new Autocomplete(input, {
+              componentRestrictions: { country: "au" },
+              types: ["geocode", "establishment"],
+              fields: ["geometry", "name", "formatted_address"]
+            });
+            
+            // Add the place_changed event listener
+            autocomplete.addListener("place_changed", async () => {
+              const selectedPlace = autocomplete.getPlace();
+              
+              if (selectedPlace && selectedPlace.geometry) {
+                try {
+                  place = {
+                    location: selectedPlace.geometry.location
+                  };
+                  await searchMap();
+                } catch (error) {
+                  console.error("Error handling place selection:", error);
+                }
+              }
+            });
 
+          } catch (error) {
+            console.error("Error initializing places autocomplete:", error);
+          }
+        }
+
+        // Video player controls
+        $(document).ready(function() {
+          const video = document.getElementById('productVideo');
+          const playPauseBtn = document.getElementById('playPauseBtn');
+          const muteBtn = document.getElementById('muteBtn');
+          const fullscreenBtn = document.getElementById('fullscreenBtn');
+          const videoContainer = document.querySelector('.video-container');
+          
+          // Check if we're on a mobile device
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          
+          // Optimize video loading
+          if (video) {
+            // Set initial play state
+            if (video.paused) {
+              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            
+            // Preload video for smoother playback
+            video.preload = "auto";
+            
+            // Handle orientation changes for better video display
+            if (isMobile) {
+              function handleOrientationChange() {
+                const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+                const windowWidth = window.innerWidth;
+                
+                // Ensure all video content is visible
+                video.style.objectFit = 'contain';
+                
+                // Adjust video positioning based on orientation
+                if (isLandscape) {
+                  // In landscape, ensure full video is visible
+                  videoContainer.style.width = '100vw';
+                } else {
+                  // In portrait, ensure full video is visible
+                  videoContainer.style.width = '100vw';
+                }
+              }
+              
+              // Run on page load
+              handleOrientationChange();
+              
+              // Add orientation change listener
+              window.addEventListener('orientationchange', function() {
+                // Small delay to allow orientation to complete
+                setTimeout(handleOrientationChange, 300);
+              });
+              
+              window.addEventListener('resize', function() {
+                handleOrientationChange();
+              });
+            }
+          }
+          
+          playPauseBtn.addEventListener('click', function() {
+            if (video.paused) {
+              video.play();
+              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+              video.pause();
+              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+          });
+          
+          muteBtn.addEventListener('click', function() {
+            video.muted = !video.muted;
+            if (video.muted) {
+              muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+              muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+          });
+          
+          fullscreenBtn.addEventListener('click', function() {
+            if (videoContainer.requestFullscreen) {
+              videoContainer.requestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) { /* Safari */
+              videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.msRequestFullscreen) { /* IE11 */
+              videoContainer.msRequestFullscreen();
+            }
+          });
+          
+          // Track video loading and playback state
+          video.addEventListener('loadeddata', function() {
+            // Video has loaded, ensure controls are properly set
+            if (video.muted) {
+              muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+              muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            
+            if (video.paused) {
+              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+          });
+        });
       });
 
+      // Reset map and markers
       const resetMap = () => {
-        markers.forEach((marker) => marker.map = null);
-        infoWindows.forEach((iw) => iw.close());
-        stockistListContent = [];
+        try {
+          // Close all infoWindows
+          if (infoWindows && infoWindows.length) {
+            infoWindows.forEach((iw) => {
+              if (iw) {
+                try {
+                  iw.close();
+                } catch (err) {
+                  console.error("Error closing info window:", err);
+                }
+              }
+            });
+          }
+          
+          // Clear the stockist list content
+          stockistListContent = [];
+          $(`#stockistsList .results`).empty();
+          
+          // If we're not doing a search, show all markers
+          if (!place || !place.location) {
+            markers.forEach(marker => {
+              if (marker) marker.map = map;
+            });
+            showAllStockistsInList();
+          } else {
+            // Show the no results message until we have results
+            $('.no-results').show();
+          }
+        } catch (error) {
+          console.error("Error resetting map:", error);
+        }
       };
 
-      async function initGoogleAPI() {
-        if (document.getElementById("stockistsMap")) {
+      // Initialize the map following Google's recommended approach
+      async function initMap() {
+        if (!document.getElementById("stockistsMap")) {
+          return null;
+        }
+        
+        try {
+          // Request needed libraries
           const { Map } = await google.maps.importLibrary("maps");
-          const myLatLng = { lat: -25.363, lng: 131.044 };
           
-          map = new Map(document.getElementById("stockistsMap"), {
+          // Center on Australia
+          const position = { lat: -25.363, lng: 131.044 };
+          
+          // Create the map instance
+          const mapElement = document.getElementById("stockistsMap");
+          map = new Map(mapElement, {
             zoom: 4,
-            center: myLatLng,
+            center: position,
             mapId: '381f33efb80891f',
+            mapTypeControl: true,
+            streetViewControl: false,
+            fullscreenControl: true,
+            zoomControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_CENTER
+            },
+            styles: [
+              {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+              }
+            ]
           });
+          
+          // Set up responsive handling
+          google.maps.event.addListenerOnce(map, 'idle', function() {
+            google.maps.event.trigger(map, 'resize');
+          });
+          
+          return map;
+        } catch (error) {
+          console.error("Error initializing map:", error);
+          return null;
         }
       }
     </script>
-  </body>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Breeder's Choice Woodshavings",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/images/logo2.png",
+      "description": "Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "92-98 Forest St",
+        "addressLocality": "Colac",
+        "addressRegion": "VIC",
+        "postalCode": "3250",
+        "addressCountry": "AU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+613 5232 2200",
+        "contactType": "customer service",
+        "email": "jarrod@breederschoice.com.au"
+      },
+      "sameAs": [
+        "https://superiorshavings.com.au"
+      ]
+    }
+    </script>
+</body>
 </html>
