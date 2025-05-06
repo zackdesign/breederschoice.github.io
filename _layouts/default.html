@@ -143,16 +143,29 @@
         transform: scale(1.1);
       }
 
-      @keyframes vibrate {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(-2deg); }
-        50% { transform: rotate(2deg); }
-        75% { transform: rotate(-1deg); }
-        100% { transform: rotate(0deg); }
-      }
+      @media (max-width: 768px) {
+        .floating-nav {
+          bottom: 0;
+          right: 0;
+          top: auto;
+          transform: none;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          border-radius: 0;
+          padding: 8px 5px;
+        }
+        
+        .floating-nav .nav-link {
+          margin: 0 3px;
+          width: 36px;
+          height: 36px;
+        }
 
-      .floating-nav .nav-link:active i {
-        animation: vibrate 0.3s ease-in-out;
+        /* Remove tooltips in mobile view */
+        .floating-nav .nav-link[data-bs-toggle="tooltip"] {
+          pointer-events: none;
+        }
       }
 
       .call-button {
@@ -694,24 +707,6 @@
           padding: 0.5rem 1.25rem;
         }
         
-        .floating-nav {
-          bottom: 0;
-          right: 0;
-          top: auto;
-          transform: none;
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-          border-radius: 0;
-          padding: 8px 5px;
-        }
-        
-        .floating-nav .nav-link {
-          margin: 0 3px;
-          width: 36px;
-          height: 36px;
-        }
-        
         #products {
           height: 60vh;
         }
@@ -1245,11 +1240,13 @@
           mirror: false
         });
         
-        // Initialize tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
-        });
+        // Initialize tooltips only on desktop
+        if (window.innerWidth > 768) {
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+          });
+        }
 
         // Add click effect to navigation icons
         $('.floating-nav .nav-link').on('click', function() {
