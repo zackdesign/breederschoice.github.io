@@ -147,6 +147,24 @@
         transform: scale(1.1);
       }
 
+      /* Add a visual indicator for active nav item */
+      .floating-nav .nav-link.active {
+        box-shadow: 0 0 10px rgba(29, 175, 14, 0.8);
+        position: relative;
+      }
+      
+      .floating-nav .nav-link.active::after {
+        content: '';
+        position: absolute;
+        right: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+      }
+
       @media (max-width: 768px) {
         .floating-nav {
           bottom: 0;
@@ -166,9 +184,17 @@
           height: 36px;
         }
 
-        /* Remove tooltips in mobile view */
+        /* Mobile-specific active indicator */
+        .floating-nav .nav-link.active::after {
+          top: -5px;
+          right: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        /* Remove tooltips in mobile view - keep pointer events enabled */
         .floating-nav .nav-link[data-bs-toggle="tooltip"] {
-          pointer-events: none;
+          /* pointer-events: none; */ /* This was preventing clicks */
         }
       }
 
@@ -1251,6 +1277,13 @@
           var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
           });
+        } else {
+          // For mobile devices, remove tooltip attributes to ensure clicks work
+          document.querySelectorAll('.floating-nav .nav-link').forEach(function(link) {
+            link.removeAttribute('data-bs-toggle');
+            link.removeAttribute('data-bs-placement');
+            link.removeAttribute('title');
+          });
         }
 
         // Add click effect to navigation icons
@@ -1352,16 +1385,36 @@
         // Active navigation state on scroll
         $(window).scroll(function() {
           let position = $(this).scrollTop();
+          let currentSection = "";
           
+          // Use a more efficient approach to find the current section
           $('section').each(function() {
-            let target = $(this).offset().top - 100;
-            let id = $(this).attr('id');
+            const sectionTop = $(this).offset().top - 200; // Larger offset for earlier detection
+            const sectionBottom = sectionTop + $(this).outerHeight();
             
-            if (position >= target) {
-              $('.floating-nav .nav-link').removeClass('active');
-              $('.floating-nav .nav-link[href="#' + id + '"]').addClass('active');
+            if (position >= sectionTop && position < sectionBottom) {
+              currentSection = $(this).attr('id');
+              return false; // Break the loop once found
             }
           });
+          
+          // Only update if we have a current section
+          if (currentSection) {
+            const $currentLink = $('.floating-nav .nav-link[href="#' + currentSection + '"]');
+            
+            // Only update if the active section has changed
+            if (!$currentLink.hasClass('active')) {
+              // Add visual transition effect
+              $('.floating-nav .nav-link').removeClass('active');
+              $currentLink.addClass('active');
+              
+              // Add a subtle animation to make the change more noticeable
+              $currentLink.css('transform', 'scale(1.2)');
+              setTimeout(function() {
+                $currentLink.css('transform', '');
+              }, 300);
+            }
+          }
         });
 
         const populateMap = async () => {
