@@ -4,23 +4,15 @@
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="description" content="Breeder's Choice Packaged Woodshavings - Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.">
-    <meta name="keywords" content="woodshavings, animal bedding, horse bedding, poultry bedding, pine shavings, kiln dried shavings, dust extracted shavings, chicken bedding, stable bedding, animal litter, pet bedding, livestock bedding, horse stable bedding, chicken coop bedding, small animal bedding">
-    <meta name="author" content="Breeder's Choice">
-    <meta name="robots" content="index, follow">
+    
+    <!-- Debug info - to be removed after fixing -->
+    <meta name="debug-title" content="{{ site.title }}">
+    <meta name="debug-description" content="{{ site.description }}">
+    
     <!-- Add these meta tags for iOS video handling -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <meta property="og:title" content="Breeder's Choice Packaged Woodshavings - Premium Animal Bedding">
-    <meta property="og:description" content="Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort.">
-    <meta property="og:image" content="/images/logo2.png">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Breeder's Choice Packaged Woodshavings">
-    <meta name="twitter:description" content="Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health.">
-    <meta name="twitter:image" content="/images/logo2.png">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -37,6 +29,18 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8HMDPDZ3T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J8HMDPDZ3T');
+    </script>
+    
+    {% seo %}
+    
     <!-- Custom CSS -->
     <style type="text/css">
       :root {
@@ -52,6 +56,11 @@
         --line-height-base: 1.6;
       }
 
+      html {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
       body {
         font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         overflow-x: hidden;
@@ -59,6 +68,7 @@
         scroll-behavior: smooth;
         line-height: var(--line-height-base);
         font-size: 1rem;
+        width: 100%;
       }
 
       /* Typography */
@@ -152,18 +162,6 @@
         box-shadow: 0 0 10px rgba(29, 175, 14, 0.8);
         position: relative;
       }
-      
-      .floating-nav .nav-link.active::after {
-        content: '';
-        position: absolute;
-        right: -5px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-      }
 
       @media (max-width: 768px) {
         .floating-nav {
@@ -204,14 +202,6 @@
           top: -10px;
           left: -10px;
           z-index: -1;
-        }
-
-        /* Mobile-specific active indicator */
-        .floating-nav .nav-link.active::after {
-          top: -5px;
-          right: auto;
-          left: 50%;
-          transform: translateX(-50%);
         }
 
         /* Remove tooltips in mobile view - keep pointer events enabled */
@@ -264,38 +254,6 @@
         height: 100%;
         overflow: hidden;
         background-color: var(--primary-color);
-      }
-      
-      #products .video-controls-overlay {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        z-index: 10;
-      }
-      
-      #products .custom-controls {
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 30px;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-      }
-      
-      #products .control-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        margin: 0 10px;
-        cursor: pointer;
-        transition: var(--transition-smooth);
-      }
-      
-      #products .control-btn:hover {
-        color: var(--secondary-color);
       }
 
       /* Features Section */
@@ -430,6 +388,20 @@
         position: relative;
       }
       
+      /* Stockist list styling */
+      #stockistsList {
+        background-color: #f8f9fa;
+        position: relative;
+        padding: 0;
+        margin-top: 0;
+        display: none; /* Hide by default, then use JS to show when needed */
+      }
+      
+      #stockistsList .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      
       #stockists .stockist-card {
         background-color: white;
         border-radius: 12px;
@@ -519,6 +491,31 @@
         height: 48px; /* Match height of select input */
         border-radius: 0.375rem;
         border: 1px solid #ced4da;
+      }
+      
+      /* Autocomplete input wrapper for clear button */
+      .input-with-clear-btn {
+        position: relative;
+        width: 100%;
+      }
+      
+      /* Clear button styling */
+      .clear-input-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 16px;
+        display: none;
+        z-index: 10;
+      }
+      
+      .clear-input-btn:hover {
+        color: var(--primary-color);
       }
       
       #stockists .place-card {
@@ -905,21 +902,11 @@
         }
       }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8HMDPDZ3T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-J8HMDPDZ3T');
-    </script>
-    {% seo %}
 </head>
 <body>
   <!-- Call Button -->
-  <a href="tel:+613 5232 2200" class="call-button text-decoration-none">
-    <i class="fa fa-phone me-2"></i> Call Us: (03) 5232 2200
+  <a href="tel:{{ site.phone_international }}" class="call-button text-decoration-none">
+    <i class="fa fa-phone me-2"></i> Call Us: {{ site.phone }}
   </a>
   
   <!-- Navigation -->
@@ -965,25 +952,12 @@
   <!-- Products Video Section -->
   <section id="products" aria-label="Product Video">
     <div class="video-container">
-      <video id="productVideo" autoplay muted loop playsinline>
+      <video id="productVideo" autoplay muted loop playsinline controls>
         <source src="/images/video.webm" type="video/webm">
         <source src="/images/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="overlay"></div>
-      <div class="video-controls-overlay">
-        <div class="custom-controls">
-          <button id="playPauseBtn" class="control-btn" aria-label="Play/Pause">
-            <i class="fas fa-play" aria-hidden="true"></i>
-          </button>
-          <button id="muteBtn" class="control-btn" aria-label="Mute/Unmute">
-            <i class="fas fa-volume-mute" aria-hidden="true"></i>
-          </button>
-          <button id="fullscreenBtn" class="control-btn" aria-label="Fullscreen">
-            <i class="fas fa-expand" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
     </div>
   </section>
   
@@ -1112,7 +1086,7 @@
         </div>
       </div>
       
-      <div id="stockistsList" class="stockists-list invisible mt-0" role="region" aria-label="Stockist list">
+      <div id="stockistsList" class="stockists-list mt-0" role="region" aria-label="Stockist list" style="display: none;">
         <div class="container py-4">
           <div class="no-results alert alert-info" role="alert">
             There are currently no results. Try searching by location or increasing your search radius.
@@ -1214,11 +1188,11 @@
                 </li>
                 <li class="list-group-item d-flex align-items-center">
                   <i class="fa fa-phone fa-lg me-3" aria-hidden="true"></i>
-                  <a href="tel:+613 5232 2200" class="text-reset text-decoration-none">+613 5232 2200</a>
+                  <a href="tel:{{ site.phone_international }}" class="text-reset text-decoration-none">{{ site.phone_international }}</a>
                 </li>
                 <li class="list-group-item d-flex align-items-center">
                   <i class="fa fa-fax fa-lg me-3" aria-hidden="true"></i>
-                  <span>+613 5232 2270</span>
+                  <span>{{ site.fax }}</span>
                 </li>
               </ul>
             </div>
@@ -1232,11 +1206,11 @@
               <address class="list-group list-group-flush mb-0">
                 <div class="list-group-item d-flex align-items-center">
                   <i class="fa fa-envelope fa-lg me-3" aria-hidden="true"></i>
-                  <span>Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia</span>
+                  <span>{{ site.address_postal }}</span>
                 </div>
                 <div class="list-group-item d-flex align-items-center">
                   <i class="fa fa-map-marker-alt fa-lg me-3" aria-hidden="true"></i>
-                  <span>92-98 Forest St, Colac, VIC 3250</span>
+                  <span>{{ site.address_physical }}</span>
                 </div>
               </address>
             </div>
@@ -1578,16 +1552,16 @@
         $('.stockists-view input').click((event) => {
           const type = event.target.id;
           if (type === 'list') {
-            $(`#stockistsList`).removeClass('invisible').fadeIn();
-            $(`#stockistsMap`).fadeOut();
+            $(`#stockistsList`).show();
+            $(`#stockistsMap`).hide();
             
             // If no search has been performed yet, show all stockists
             if (!place || !place.location) {
               showAllStockistsInList();
             }
           } else {
-            $(`#stockistsList`).addClass('invisible').fadeOut();
-            $(`#stockistsMap`).fadeIn();
+            $(`#stockistsList`).hide();
+            $(`#stockistsMap`).show();
             // Trigger a resize event to ensure the map renders correctly
             if (map) {
               google.maps.event.trigger(map, 'resize');
@@ -1660,22 +1634,64 @@
             // Import the places library
             const { Autocomplete } = await google.maps.importLibrary("places");
             
+            // Create a wrapper div for input and clear button
+            const wrapper = document.createElement('div');
+            wrapper.className = 'input-with-clear-btn';
+            
             // Create a standard input element
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Enter your location';
             input.className = 'form-control';
+            input.id = 'location-input';
+            
+            // Create clear button
+            const clearButton = document.createElement('button');
+            clearButton.className = 'clear-input-btn';
+            clearButton.innerHTML = '<i class="fas fa-times"></i>';
+            clearButton.setAttribute('aria-label', 'Clear location');
+            clearButton.setAttribute('type', 'button');
             
             // Clear and append the input
             const container = document.getElementById("autocomplete");
             container.innerHTML = '';
-            container.appendChild(input);
+            wrapper.appendChild(input);
+            wrapper.appendChild(clearButton);
+            container.appendChild(wrapper);
             
             // Create the autocomplete
             const autocomplete = new Autocomplete(input, {
               componentRestrictions: { country: "au" },
               types: ["geocode", "establishment"],
               fields: ["geometry", "name", "formatted_address"]
+            });
+            
+            // Show/hide clear button based on input content
+            input.addEventListener('input', function() {
+              clearButton.style.display = this.value ? 'block' : 'none';
+            });
+            
+            // Clear button functionality
+            clearButton.addEventListener('click', function() {
+              input.value = '';
+              clearButton.style.display = 'none';
+              place = undefined;
+              resetMap();
+              
+              // Reset map to show all markers
+              markers.forEach(marker => {
+                if (marker) marker.map = map;
+              });
+              
+              // Show all stockists in list view
+              showAllStockistsInList();
+              
+              // Reset map zoom and center on Australia
+              map.setZoom(4);
+              map.setCenter({ lat: -25.363, lng: 131.044 });
+              
+              // Focus back on the input
+              input.focus();
             });
             
             // Add the place_changed event listener
@@ -1688,6 +1704,8 @@
                     location: selectedPlace.geometry.location
                   };
                   await searchMap();
+                  // Show clear button when a place is selected
+                  clearButton.style.display = 'block';
                 } catch (error) {
                   console.error("Error handling place selection:", error);
                 }
@@ -1702,9 +1720,6 @@
         // Video player controls
         $(document).ready(function() {
           const video = document.getElementById('productVideo');
-          const playPauseBtn = document.getElementById('playPauseBtn');
-          const muteBtn = document.getElementById('muteBtn');
-          const fullscreenBtn = document.getElementById('fullscreenBtn');
           const videoContainer = document.querySelector('.video-container');
           
           // Check if we're on a mobile device
@@ -1712,13 +1727,6 @@
           
           // Optimize video loading
           if (video) {
-            // Set initial play state
-            if (video.paused) {
-              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            
             // Preload video for smoother playback
             video.preload = "auto";
             
@@ -1755,51 +1763,6 @@
               });
             }
           }
-          
-          playPauseBtn.addEventListener('click', function() {
-            if (video.paused) {
-              video.play();
-              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-              video.pause();
-              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-          });
-          
-          muteBtn.addEventListener('click', function() {
-            video.muted = !video.muted;
-            if (video.muted) {
-              muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            } else {
-              muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            }
-          });
-          
-          fullscreenBtn.addEventListener('click', function() {
-            if (videoContainer.requestFullscreen) {
-              videoContainer.requestFullscreen();
-            } else if (videoContainer.webkitRequestFullscreen) { /* Safari */
-              videoContainer.webkitRequestFullscreen();
-            } else if (videoContainer.msRequestFullscreen) { /* IE11 */
-              videoContainer.msRequestFullscreen();
-            }
-          });
-          
-          // Track video loading and playback state
-          video.addEventListener('loadeddata', function() {
-            // Video has loaded, ensure controls are properly set
-            if (video.muted) {
-              muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            } else {
-              muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            }
-            
-            if (video.paused) {
-              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-              playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-          });
         });
       });
 
@@ -1884,33 +1847,6 @@
         }
       }
     </script>
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Breeder's Choice Woodshavings",
-      "url": "{{ site.url }}",
-      "logo": "{{ site.url }}/images/logo2.png",
-      "description": "Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "92-98 Forest St",
-        "addressLocality": "Colac",
-        "addressRegion": "VIC",
-        "postalCode": "3250",
-        "addressCountry": "AU"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+613 5232 2200",
-        "contactType": "customer service",
-        "email": "jarrod@breederschoice.com.au"
-      },
-      "sameAs": [
-        "https://superiorshavings.com.au"
-      ]
-    }
-    </script>
+    <!-- Structured Data is now handled by the SEO tag -->
 </body>
 </html>

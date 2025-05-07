@@ -13,12 +13,23 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Screening & Packaging of Pine Woodshavings to the Poultry Industry, Equine and Small Animal markets
-email: your-email@example.com
+title: "Breeder's Choice Packaged Woodshavings - Premium Animal Bedding"
+email: "jarrod@breederschoice.com.au"
 description: >- # this means to ignore newlines until "baseurl:"
-  Our baled woodshavings are suitable for commercial use in poultry and chicken nests and sheds, calf sheds, equine and small animal enclosures.
+  Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://breederschoice.com.au" # the base hostname & protocol for your site, e.g. http://example.com
+author: "Breeder's Choice"
+phone: "(03) 5232 2200"
+phone_international: "+613 5232 2200"
+fax: "+613 5232 2270"
+address_postal: "Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia"
+address_physical: "92-98 Forest St, Colac, VIC 3250"
+
+# SEO related
+keywords: "woodshavings, animal bedding, horse bedding, poultry bedding, pine shavings, kiln dried shavings, dust extracted shavings, chicken bedding, stable bedding, animal litter, pet bedding, livestock bedding, horse stable bedding, chicken coop bedding, small animal bedding"
+logo: "/images/logo2.png"
+twitter_card: "summary_large_image"
 
 stockistscsv: https://dl.dropbox.com/s/b3gmuxhrrye00gl/breeders_choice.csv
 
