@@ -107,12 +107,14 @@ layout: base
     <h2 class="section-title">Three ways to buy it</h2>
     <div class="range">
       <article class="pack" data-reveal>
-        <img src="{{ '/images/products2.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="680" height="454">
+        {%- comment -%} bale14.jpg is cropped from bales.jpg — current label.
+        products.jpg / products2.jpg carry the old label art, so they stay
+        off the page until reshot. {%- endcomment -%}
+        <img src="{{ '/images/bale14.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="1400" height="933">
         <h3>The 14kg bale</h3>
         <p>The standard: compressed to {{ site.bale_weight }}, expands to {{ site.bale_volume }}. Stack it in the shed, open it when you need it.</p>
       </article>
-      <article class="pack" data-reveal>
-        <img src="{{ '/images/products.jpg' | relative_url }}" alt="Large wool-pack bale of woodshavings" loading="lazy" decoding="async" width="680" height="454">
+      <article class="pack pack--text" data-reveal>
         <h3>Wool-pack bales</h3>
         <p>Around 1.2 m³ uncompressed for high-volume users — studs, catteries, commercial poultry sheds.</p>
       </article>
