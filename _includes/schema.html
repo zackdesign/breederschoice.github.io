@@ -1,0 +1,56 @@
+{%- comment -%}
+Breeder's Choice is the parent entity (Pty Ltd, ABN on the ABR). Its node
+carries Organization + LocalBusiness for the Colac plant; Superior Shavings'
+site declares its own LocalBusiness with parentOrganization pointing here.
+Range is an OfferCatalog — never Product-without-offers.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "{{ site.url }}/#org",
+      "name": "Breeder's Choice Woodshavings",
+      "legalName": "{{ site.parent_name }}",
+      "identifier": "ABN {{ site.parent_abn }}",
+      "url": "{{ site.url }}",
+      "image": "{{ site.url }}/icon-512.png",
+      "telephone": "{{ site.phone_intl }}",
+      "email": "{{ site.email }}",
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "foundingDate": "1994",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "92-98 Forest St",
+        "addressLocality": "Colac",
+        "addressRegion": "VIC",
+        "postalCode": "3250",
+        "addressCountry": "AU"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": {{ site.latitude }}, "longitude": {{ site.longitude }} },
+      "areaServed": { "@type": "Country", "name": "Australia" },
+      "sameAs": ["{{ site.facebook_url }}"],
+      "brand": [
+        { "@type": "Brand", "name": "Breeder's Choice Woodshavings" },
+        { "@type": "Brand", "name": "Superior Shavings" }
+      ],
+      "subOrganization": {
+        "@type": "LocalBusiness",
+        "@id": "{{ site.sister_url }}/#business",
+        "name": "Superior Shavings",
+        "url": "{{ site.sister_url }}"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Pine woodshavings animal bedding",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "14kg compressed bales", "description": "Kiln-dried, trommel-screened and dust-extracted pine shavings — approx. 0.18 m³ uncompressed per bale." },
+          { "@type": "OfferCatalog", "name": "Wool-pack bales", "description": "Larger-format bales of approx. 1.2 m³ uncompressed for high-volume users." },
+          { "@type": "OfferCatalog", "name": "Pet Flakes 1kg bags", "description": "Dust-extracted shavings in small bags for cages and hutches." }
+        ]
+      }
+    }
+  ]
+}
+</script>

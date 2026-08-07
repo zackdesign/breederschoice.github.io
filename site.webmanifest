@@ -1,0 +1,19 @@
+---
+layout: null
+sitemap: false
+---
+{
+  "name": "Breeder's Choice Woodshavings",
+  "short_name": "Breeder's Choice",
+  "description": "Kiln-dried pine woodshavings, baled in Colac VIC since 1994.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F4F1E8",
+  "theme_color": "#0B4423",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

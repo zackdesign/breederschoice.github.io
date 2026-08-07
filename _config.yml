@@ -1,55 +1,55 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Breeder's Choice Woodshavings — Colac VIC. Parent of Superior Shavings.
+title: "Breeder's Choice Woodshavings"
+tagline: "Kiln-dried pine woodshavings from Colac, Victoria — since 1994"
+description: >
+  Premium kiln-dried pine woodshavings for horse stables, poultry sheds and
+  small-animal bedding. Screened through a purpose-built trommel to remove
+  dust, baled in Colac on the edge of the Otways, and stocked by produce
+  stores and pet retailers across Australia.
+url: "https://breederschoice.com.au"
+baseurl: ""
+lang: en-AU
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: "Breeder's Choice Packaged Woodshavings - Premium Animal Bedding"
 email: "jarrod@breederschoice.com.au"
-description: >- # this means to ignore newlines until "baseurl:"
-  Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://breederschoice.com.au" # the base hostname & protocol for your site, e.g. http://example.com
-author: "Breeder's Choice"
 phone: "(03) 5232 2200"
+phone_intl: "+61 3 5232 2200"
+# Legacy alias — old layout at / reads this exact key
 phone_international: "+613 5232 2200"
-fax: "+613 5232 2270"
-address_postal: "Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia"
 address_physical: "92-98 Forest St, Colac, VIC 3250"
+address_postal: "Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia"
+latitude: -38.344848
+longitude: 143.60772
 
-# SEO related
-keywords: "woodshavings, animal bedding, horse bedding, poultry bedding, pine shavings, kiln dried shavings, dust extracted shavings, chicken bedding, stable bedding, animal litter, pet bedding, livestock bedding, horse stable bedding, chicken coop bedding, small animal bedding"
-logo: "/images/logo2.png"
-twitter_card: "summary_large_image"
+parent_name: "Breeder's Choice Woodshavings Pty Ltd"
+parent_abn: "64 118 468 223"
+sister_url: "https://superiorshavings.com.au"
+sister_name: "Superior Shavings"
+facebook_url: "https://www.facebook.com/p/Breeders-Choice-Woodshavings-100064240200176/"
 
-stockistscsv: https://dl.dropbox.com/s/b3gmuxhrrye00gl/breeders_choice.csv
+bale_weight: "14kg"
+# 0.18 per the client's own video; the old site said 0.2 — flagged with Jarrod
+bale_volume: "approx. 0.18 m³ uncompressed"
+moisture: "8–12%"
 
-# Build settings
+# Stockists — live CSV in the owner's Dropbox, fetched at runtime in the
+# browser (never at build time) so edits go live without a deploy.
+stockists_csv: "https://dl.dropboxusercontent.com/s/b3gmuxhrrye00gl/breeders_choice.csv"
+# Legacy alias — old layout at / reads this exact key
+stockistscsv: "https://dl.dropbox.com/s/b3gmuxhrrye00gl/breeders_choice.csv"
+maps_api_key: "AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8"
+
+author: "Breeder's Choice"
+google_analytics: "G-J8HMDPDZ3T"
+
 markdown: kramdown
-
-repository: zackdesign/breederschoice.github.io
-
 plugins:
-  - jekyll-email-protect
   - jekyll-seo-tag
   - jekyll-sitemap
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  - jekyll-email-protect
+
+exclude: [Gemfile, Gemfile.lock, README.md, vendor/]
+
+defaults:
+  - scope: { path: "" }
+    values:
+      image: /images/og.jpg

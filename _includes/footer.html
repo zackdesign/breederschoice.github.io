@@ -1,0 +1,57 @@
+{%- assign home = page.home_url | default: '/' -%}
+{%- assign stk = page.stockists_index -%}
+{%- unless stk -%}{%- assign stk = home | append: 'stockists/' -%}{%- endunless -%}
+{%- assign tel = site.phone_intl | remove: ' ' -%}
+<footer class="footer" id="contact">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <h2>Breeder's Choice</h2>
+        <p>
+          Family-owned in Colac, Victoria since 1994. Kiln-dried pine
+          woodshavings, trommel-screened and dust-extracted for poultry,
+          equine and small-animal bedding.
+        </p>
+      </div>
+
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:{{ tel }}">{{ site.phone }}</a></li>
+          <li><a href="mailto:{{ site.email | encode_email }}">Email us</a></li>
+          <li>{{ site.address_physical }}</li>
+          <li>Post: PO Box 530, Colac, VIC 3250</li>
+          <li><a href="{{ site.facebook_url }}" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Stockists</h2>
+        <ul>
+          <li><a href="{{ stk | relative_url }}">Find your nearest stockist</a></li>
+          {% for st in site.data.states limit: 4 %}
+            <li><a href="{{ stk | append: st.code | append: '/' | relative_url }}">{{ st.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h2>The family</h2>
+        <ul>
+          <li>Breeder's Choice — Colac VIC</li>
+          <li><a href="{{ site.sister_url }}" rel="noopener">Superior Shavings — Tumut NSW</a></li>
+        </ul>
+        <p class="footer__note">
+          In New South Wales? Our Tumut plant bales
+          <a href="{{ site.sister_url }}" rel="noopener">Superior Shavings</a> —
+          same standard, closer to you.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer__meta">
+      <span>&copy; {{ 'now' | date: "%Y" }} {{ site.parent_name }} · ABN {{ site.parent_abn }}</span>
+      <a href="https://zackdesign.biz">Site by Zack Design</a>
+    </div>
+  </div>
+</footer>

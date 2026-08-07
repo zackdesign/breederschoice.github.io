@@ -1,0 +1,220 @@
+---
+layout: base
+---
+{%- assign tel = site.phone_intl | remove: ' ' -%}
+
+<!-- Hero: the bales themselves --------------------------------------------->
+<section class="hero">
+  <div class="shell hero__grid">
+    <div class="hero__text">
+      <p class="hero__eyebrow">Colac VIC · Family-owned since 1994</p>
+      <h1 class="hero__title">The bedding your animals would pick</h1>
+      <p class="hero__lede">
+        Kiln-dried pine woodshavings, screened through a purpose-built trommel
+        to take the dust out — baled in Colac and stocked by produce stores
+        and pet retailers across Australia.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="{{ page.stockists_index | default: '/stockists/' | relative_url }}">
+          Find a stockist {% include icon.html name="arrow" %}
+        </a>
+        <a class="btn btn--ghost" href="#product">Why shavings</a>
+      </div>
+    </div>
+
+    <figure class="hero__media">
+      <img src="{{ '/images/bales.jpg' | relative_url }}"
+           alt="Stacked bales of Breeder's Choice woodshavings"
+           width="2000" height="1333" fetchpriority="high" decoding="async">
+      <!-- The bale label: the spec, as a kraft tag -->
+      <figcaption class="label" role="group" aria-label="Bale specifications">
+        <span class="label__title">Every bale</span>
+        <dl class="label__spec">
+          <div><dt>Weight</dt><dd>{{ site.bale_weight }} compressed</dd></div>
+          <div><dt>Volume</dt><dd>{{ site.bale_volume }}</dd></div>
+          <div><dt>Moisture</dt><dd>{{ site.moisture }} kiln-dried</dd></div>
+          <div><dt>Additives</dt><dd>None</dd></div>
+        </dl>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Why -------------------------------------------------------------------->
+<section class="band band--forest" id="product">
+  <div class="shell">
+    <p class="eyebrow eyebrow--forest">The shavings</p>
+    <h2 class="section-title">What the label doesn't tell you</h2>
+    <div class="whys">
+      <article class="why" data-reveal>
+        <h3>Trommel-screened</h3>
+        <p>
+          Every batch passes through a purpose-built rotary trommel screen
+          that pulls out sawdust and fines. Less dust in the bale means less
+          dust in the shed — and in your animals' airways.
+        </p>
+      </article>
+      <article class="why" data-reveal>
+        <h3>Kiln-dried to {{ site.moisture }}</h3>
+        <p>
+          Our shavings come from timber kiln-dried to a moisture content of
+          {{ site.moisture }}. That's what makes them absorbent — the bedding
+          works harder, stays drier, and lasts longer between changes.
+        </p>
+      </article>
+      <article class="why" data-reveal>
+        <h3>Our own trucks</h3>
+        <p>
+          Raw shavings travel in our own dedicated trailers, used for nothing
+          else. For poultry operations where biosecurity matters, that chain
+          of custody is the point.
+        </p>
+      </article>
+      <article class="why" data-reveal>
+        <h3>All natural</h3>
+        <p>
+          Radiata pine and nothing else — no chemical additives. Safe for
+          horses, poultry, cattle, and the smallest hutch dwellers.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Video: opt-in with poster ----------------------------------------------->
+<section class="band" id="see-it">
+  <div class="shell">
+    <p class="eyebrow">See it</p>
+    <h2 class="section-title">Straight off the press</h2>
+    <div class="vid" data-reveal>
+      <video controls preload="none" playsinline
+             poster="{{ '/images/video-poster.jpg' | relative_url }}"
+             width="854" height="480">
+        <source src="{{ '/images/video.webm' | relative_url }}" type="video/webm">
+        <source src="{{ '/images/video.mp4' | relative_url }}" type="video/mp4">
+        Your browser doesn't support embedded video —
+        <a href="{{ '/images/video.mp4' | relative_url }}">download it instead</a>.
+      </video>
+      <p class="vid__note">Two minutes inside the Colac plant — press, palletiser, and out the gate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Range ------------------------------------------------------------------->
+<section class="band band--cream" id="range">
+  <div class="shell">
+    <p class="eyebrow">The range</p>
+    <h2 class="section-title">Three ways to buy it</h2>
+    <div class="range">
+      <article class="pack" data-reveal>
+        <img src="{{ '/images/products2.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="680" height="454">
+        <h3>The 14kg bale</h3>
+        <p>The standard: compressed to {{ site.bale_weight }}, expands to {{ site.bale_volume }}. Stack it in the shed, open it when you need it.</p>
+      </article>
+      <article class="pack" data-reveal>
+        <img src="{{ '/images/products.jpg' | relative_url }}" alt="Large wool-pack bale of woodshavings" loading="lazy" decoding="async" width="680" height="454">
+        <h3>Wool-pack bales</h3>
+        <p>Around 1.2 m³ uncompressed for high-volume users — studs, catteries, commercial poultry sheds.</p>
+      </article>
+      <article class="pack pack--text" data-reveal>
+        <h3>Pet Flakes</h3>
+        <p>Dust-extracted shavings in 1kg bags for cages, hutches and carry boxes — sold through pet retailers.</p>
+        <p class="pack__note">Ask your stockist which formats they range.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Uses -------------------------------------------------------------------->
+<section class="band" id="uses">
+  <div class="shell">
+    <p class="eyebrow">In the shed</p>
+    <h2 class="section-title">Poultry, horses, and everything smaller</h2>
+    <div class="uses">
+      <figure class="use" data-reveal>
+        <img src="{{ '/images/site/horse.jpg' | relative_url }}" alt="A horse looking out over its stable door" loading="lazy" decoding="async" width="900" height="900">
+        <figcaption>
+          <h3>Equine</h3>
+          <p>Dust-extracted bedding for stables and floats. Vets recommend low-dust bedding for horses with respiratory sensitivities — it's why we screen every batch.</p>
+        </figcaption>
+      </figure>
+      <figure class="use" data-reveal>
+        <img src="{{ '/images/site/hen.jpg' | relative_url }}" alt="A brown hen with the flock behind her" loading="lazy" decoding="async" width="900" height="900">
+        <figcaption>
+          <h3>Poultry</h3>
+          <p>Nesting boxes, coops and sheds — absorbent litter that keeps birds dry, from the backyard flock to commercial growers.</p>
+        </figcaption>
+      </figure>
+      <figure class="use use--text" data-reveal>
+        <figcaption>
+          <h3>Small animals &amp; cattle</h3>
+          <p>Calf pens, rabbit hutches, guinea pig runs and rodent cages — the same screened, additive-free shavings in whatever quantity suits.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Story ------------------------------------------------------------------->
+<section class="band band--forest" id="story">
+  <div class="shell story">
+    <div>
+      <p class="eyebrow eyebrow--forest">Our story</p>
+      <h2 class="section-title">Thirty-odd years of shavings</h2>
+      <p>
+        Breeder's Choice has been packaging woodshavings in Colac since
+        1994 — a family business on the edge of the Otways, one of
+        Victoria's historic pine-growing regions. It's still run by the same
+        family today.
+      </p>
+      <p>
+        The shavings start as a by-product of timber milling — kiln-dried
+        radiata pine, nothing else. Everything after that is the business:
+        trommel screening, dust extraction, pressing into 14kg bales,
+        robotic palletising and shrink-wrapping. One product, done
+        carefully, for over three decades.
+      </p>
+      <p>
+        In 2021 the family took on <strong>Superior Shavings</strong> in
+        Tumut, NSW — a second plant in the heart of NSW softwood country,
+        baling to the same standard for customers north of the border.
+      </p>
+      <p>
+        <a class="story__link" href="{{ site.sister_url }}" rel="noopener">
+          In NSW? Meet Superior Shavings {% include icon.html name="arrow" %}
+        </a>
+      </p>
+    </div>
+    <div class="story__aside" data-reveal>
+      <div class="label label--flat">
+        <span class="label__title">The short version</span>
+        <dl class="label__spec">
+          <div><dt>Since</dt><dd>1994</dd></div>
+          <div><dt>Where</dt><dd>Colac, Victoria</dd></div>
+          <div><dt>Who</dt><dd>The Hay family</dd></div>
+          <div><dt>What</dt><dd>Woodshavings. That's it.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trade ------------------------------------------------------------------->
+<section class="band band--cream" id="trade">
+  <div class="shell trade">
+    <div>
+      <p class="eyebrow">Trade &amp; wholesale</p>
+      <h2 class="section-title">Stock Breeder's Choice</h2>
+      <p class="section-lede">
+        We supply produce stores, saddleries and pet retailers Australia-wide,
+        including through the AIRR network. Pallets come robotically stacked,
+        shrink-wrapped and topped. Ring us about pallet quantities and
+        becoming a stockist.
+      </p>
+    </div>
+    <div class="trade__actions">
+      <a class="btn btn--primary" href="tel:{{ tel }}">{% include icon.html name="phone" %} {{ site.phone }}</a>
+      <a class="btn btn--ghost" href="mailto:{{ site.email | encode_email }}?subject=Stockist%20enquiry%20%E2%80%94%20Breeder%27s%20Choice">{% include icon.html name="mail" %} Email us</a>
+    </div>
+  </div>
+</section>
