@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------------
    A family business that has done one thing since the early 1990s. The page
    is built around the bale: real photography, and a kraft bale-label tag
-   carrying the spec (14kg / ~0.2m³ / 8–12%) as the signature device. The
+   carrying the spec (14kg / ~0.18m³ / 8–12%) as the signature device. The
    brand's own greens (#0B4423 / #0F6B36 from the logo), shaving-cream paper,
    kraft board. Bricolage Grotesque display over Inter. Deliberately the
    daylight sibling of Superior Shavings' iron-dark industrial register.
@@ -68,6 +68,10 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 p:last-child { margin-bottom: 0; }
 
 :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+/* Green rings vanish on forest (1.7:1) — go white on dark surfaces */
+.band--forest :focus-visible, .page-head :focus-visible, .footer :focus-visible {
+  outline-color: #fff;
+}
 :focus:not(:focus-visible) { outline: none; }
 ::selection { background: var(--forest); color: #fff; }
 
@@ -339,7 +343,7 @@ p:last-child { margin-bottom: 0; }
 .stk__input {
   flex: 1 1 18rem;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--line); border-radius: var(--radius);
+  border: 1px solid #767C72; border-radius: var(--radius); /* ≥3:1 boundary on paper */
   background: var(--paper); color: var(--ink);
   font: 400 var(--step-0) / 1.4 var(--body);
 }

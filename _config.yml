@@ -1,7 +1,16 @@
 # Breeder's Choice Woodshavings — Colac VIC. Parent of Superior Shavings.
-title: "Breeder's Choice Woodshavings"
-tagline: "Kiln-dried pine woodshavings from Colac, Victoria — since 1994"
-description: >
+# NOTE: title + description are read by the OLD layout still serving /
+# ({% seo %}) — keep them byte-identical to the old site until the
+# /preview/ design is promoted. At flip time, swap them for the
+# brand_description / tagline copy below.
+title: "Breeder's Choice Packaged Woodshavings - Premium Animal Bedding"
+description: >-
+  Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.
+# renamed from tagline: jekyll-seo-tag appends site.tagline to the LIVE
+# homepage <title>; brand_* keys are invisible to the old pages
+brand_tagline: "Kiln-dried pine woodshavings from Colac, Victoria — since 1994"
+# New-design copy (schema + future flip) — not read by the old layout.
+brand_description: >
   Premium kiln-dried pine woodshavings for horse stables, poultry sheds and
   small-animal bedding. Screened through a purpose-built trommel to remove
   dust, baled in Colac on the edge of the Otways, and stocked by produce
@@ -49,7 +58,8 @@ plugins:
 
 exclude: [Gemfile, Gemfile.lock, README.md, vendor/]
 
+# og image on the new pages only — the OLD pages at / must stay untouched
 defaults:
-  - scope: { path: "" }
+  - scope: { path: "preview" }
     values:
       image: /images/og.jpg
