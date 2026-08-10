@@ -276,6 +276,15 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase; letter-spacing: 0.1em;
 }
 
+/* The bale — single-format feature (wool-packs and Pet Flakes discontinued) */
+.bale { display: grid; gap: clamp(1.5rem, 1rem + 2.5vw, 3rem); align-items: center; }
+@media (min-width: 60rem) { .bale { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.bale__media { margin: 0; }
+.bale__media img {
+  border-radius: var(--radius);
+  box-shadow: 0 24px 48px -24px rgba(11, 68, 35, 0.35);
+}
+
 /* Range packs */
 .range { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
 @media (min-width: 54rem) { .range { grid-template-columns: repeat(3, 1fr); } }

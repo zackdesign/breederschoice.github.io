@@ -100,29 +100,23 @@ layout: base
   </div>
 </section>
 
-<!-- Range ------------------------------------------------------------------->
+<!-- The bale (one format only — wool-packs and Pet Flakes discontinued) ------>
 <section class="band band--cream" id="range">
-  <div class="shell">
-    <p class="eyebrow">The range</p>
-    <h2 class="section-title">Three ways to buy it</h2>
-    <div class="range">
-      <article class="pack" data-reveal>
-        {%- comment -%} bale14.jpg is cropped from bales.jpg — current label.
-        products.jpg / products2.jpg carry the old label art, so they stay
-        off the page until reshot. {%- endcomment -%}
-        <img src="{{ '/images/bale14.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="1400" height="933">
-        <h3>The 14kg bale</h3>
-        <p>The standard: compressed to {{ site.bale_weight }}, expands to {{ site.bale_volume }}. Stack it in the shed, open it when you need it.</p>
-      </article>
-      <article class="pack pack--text" data-reveal>
-        <h3>Wool-pack bales</h3>
-        <p>Around 1.2 m³ uncompressed for high-volume users — studs, catteries, commercial poultry sheds.</p>
-      </article>
-      <article class="pack pack--text" data-reveal>
-        <h3>Pet Flakes</h3>
-        <p>Dust-extracted shavings in 1kg bags for cages, hutches and carry boxes — sold through pet retailers.</p>
-        <p class="pack__note">Ask your stockist which formats they range.</p>
-      </article>
+  <div class="shell bale">
+    <figure class="bale__media" data-reveal>
+      {%- comment -%} bale14.jpg is cropped from bales.jpg — current label.
+      products.jpg / products2.jpg carry the old label art, so they stay
+      off the page until reshot. {%- endcomment -%}
+      <img src="{{ '/images/bale14.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="1400" height="933">
+    </figure>
+    <div class="bale__copy">
+      <p class="eyebrow">The bale</p>
+      <h2 class="section-title">One format, done right</h2>
+      <p class="section-lede">
+        Compressed to {{ site.bale_weight }}, expands to {{ site.bale_volume }}.
+        Dense to freight, easy to stack, open it when you need it — the same
+        bale at every stockist.
+      </p>
     </div>
   </div>
 </section>
@@ -182,9 +176,9 @@ layout: base
         carefully, for over three decades.
       </p>
       <p>
-        In 2021 the family took on <strong>Superior Shavings</strong> in
-        Tumut, NSW — a second plant in the heart of NSW softwood country,
-        baling to the same standard for customers north of the border.
+        In 2016 the family took on <strong>Superior Shavings</strong> —
+        now baling from Tumut, in the heart of NSW softwood country, to
+        the same standard for customers north of the border.
       </p>
       <p>
         <a class="story__link" href="{{ site.sister_url }}" rel="noopener">
