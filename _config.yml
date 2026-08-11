@@ -12,8 +12,8 @@ brand_tagline: "Kiln-dried pine woodshavings from Colac, Victoria — since 1994
 # New-design copy (schema + future flip) — not read by the old layout.
 brand_description: >
   Premium kiln-dried pine woodshavings for horse stables, poultry sheds and
-  small-animal bedding. Screened through a purpose-built trommel to remove
-  dust, baled in Colac on the edge of the Otways, and stocked by produce
+  small-animal bedding. Triple screened to remove dust, baled in Colac on
+  the edge of the Otways, and stocked by produce
   stores and pet retailers across Australia.
 url: "https://breederschoice.com.au"
 baseurl: ""
@@ -38,7 +38,7 @@ facebook_url: "https://www.facebook.com/p/Breeders-Choice-Woodshavings-100064240
 bale_weight: "14kg"
 # 0.18 per the client's own video; the old site said 0.2 — flagged with Jarrod
 bale_volume: "approx. 0.18 m³ uncompressed"
-moisture: "8–12%"
+moisture: "8–13%"
 
 # Stockists — live CSV in the owner's Dropbox, fetched at runtime in the
 # browser (never at build time) so edits go live without a deploy.
