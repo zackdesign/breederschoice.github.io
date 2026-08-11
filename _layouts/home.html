@@ -3,7 +3,6 @@ layout: base
 ---
 {%- assign tel = site.phone_intl | remove: ' ' -%}
 
-<!-- Hero: the bales themselves --------------------------------------------->
 <section class="hero">
   <div class="shell hero__grid">
     <div class="hero__text">
@@ -26,7 +25,6 @@ layout: base
       <img src="{{ '/images/bales.jpg' | relative_url }}"
            alt="Stacked bales of Breeder's Choice woodshavings"
            width="2000" height="1333" fetchpriority="high" decoding="async">
-      <!-- The bale label: the spec, as a kraft tag -->
       <figcaption class="label" role="group" aria-label="Bale specifications">
         <span class="label__title">Every bale</span>
         <dl class="label__spec">
@@ -40,7 +38,6 @@ layout: base
   </div>
 </section>
 
-<!-- Why -------------------------------------------------------------------->
 <section class="band band--forest" id="product">
   <div class="shell">
     <p class="eyebrow eyebrow--forest">The shavings</p>
@@ -82,7 +79,6 @@ layout: base
   </div>
 </section>
 
-<!-- Video: opt-in with poster ----------------------------------------------->
 <section class="band" id="see-it">
   <div class="shell">
     <p class="eyebrow">See it</p>
@@ -100,13 +96,9 @@ layout: base
   </div>
 </section>
 
-<!-- The bale (one format only — wool-packs and Pet Flakes discontinued) ------>
 <section class="band band--cream" id="range">
   <div class="shell bale">
     <figure class="bale__media" data-reveal>
-      {%- comment -%} bale14.jpg is cropped from bales.jpg — current label.
-      products.jpg / products2.jpg carry the old label art, so they stay
-      off the page until reshot. {%- endcomment -%}
       <img src="{{ '/images/bale14.jpg' | relative_url }}" alt="A standard 14kg bale of Breeder's Choice woodshavings" loading="lazy" decoding="async" width="1400" height="933">
     </figure>
     <div class="bale__copy">
@@ -121,7 +113,6 @@ layout: base
   </div>
 </section>
 
-<!-- Uses -------------------------------------------------------------------->
 <section class="band" id="uses">
   <div class="shell">
     <p class="eyebrow">In the shed</p>
@@ -151,12 +142,10 @@ layout: base
   </div>
 </section>
 
-<!-- The product, in hand ----------------------------------------------------->
 <figure class="handsband">
   <img src="{{ '/images/back1.jpg' | relative_url }}" alt="A handful of fresh pine shavings" loading="lazy" decoding="async" width="2000" height="352">
 </figure>
 
-<!-- Story ------------------------------------------------------------------->
 <section class="band band--forest" id="story">
   <div class="shell story">
     <div>
@@ -171,9 +160,8 @@ layout: base
       <p>
         The shavings start as a by-product of timber milling — kiln-dried
         radiata pine, nothing else. Everything after that is the business:
-        trommel screening, dust extraction, pressing into 14kg bales,
-        robotic palletising and shrink-wrapping. One product, done
-        carefully, for over three decades.
+        triple screening, pressing into 14kg bales, robotic palletising and
+        shrink-wrapping. One product, done carefully, for over three decades.
       </p>
       <p>
         In 2016 the family took on <strong>Superior Shavings</strong> —
@@ -200,7 +188,6 @@ layout: base
   </div>
 </section>
 
-<!-- Trade ------------------------------------------------------------------->
 <section class="band band--cream" id="trade">
   <div class="shell trade">
     <div>
