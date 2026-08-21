@@ -1,20 +1,10 @@
 # Breeder's Choice Woodshavings — Colac VIC. Parent of Superior Shavings.
-# NOTE: title + description are read by the OLD layout still serving /
-# ({% seo %}) — keep them byte-identical to the old site until the
-# /preview/ design is promoted. At flip time, swap them for the
-# brand_description / tagline copy below.
-title: "Breeder's Choice Packaged Woodshavings - Premium Animal Bedding"
+title: "Breeder's Choice Woodshavings"
 description: >-
-  Premium quality pine woodshavings for poultry, equine, and small animal bedding. Kiln-dried, dust-extracted, and screened for optimal animal health and comfort. Available in 14kg bales.
-# renamed from tagline: jekyll-seo-tag appends site.tagline to the LIVE
-# homepage <title>; brand_* keys are invisible to the old pages
-brand_tagline: "Kiln-dried pine woodshavings from Colac, Victoria — since 1994"
-# New-design copy (schema + future flip) — not read by the old layout.
-brand_description: >
   Premium kiln-dried pine woodshavings for horse stables, poultry sheds and
   small-animal bedding. Triple screened to remove dust, baled in Colac on
-  the edge of the Otways, and stocked by produce
-  stores and pet retailers across Australia.
+  the edge of the Otways, and stocked by produce stores and pet retailers
+  across Australia.
 url: "https://breederschoice.com.au"
 baseurl: ""
 lang: en-AU
@@ -22,8 +12,6 @@ lang: en-AU
 email: "jarrod@breederschoice.com.au"
 phone: "(03) 5232 2200"
 phone_intl: "+61 3 5232 2200"
-# Legacy alias — old layout at / reads this exact key
-phone_international: "+613 5232 2200"
 address_physical: "92-98 Forest St, Colac, VIC 3250"
 address_postal: "Jarrod Hay, PO Box 530, Colac, VIC 3250 Australia"
 latitude: -38.344848
@@ -43,8 +31,6 @@ moisture: "8–13%"
 # Stockists — live CSV in the owner's Dropbox, fetched at runtime in the
 # browser (never at build time) so edits go live without a deploy.
 stockists_csv: "https://dl.dropboxusercontent.com/s/b3gmuxhrrye00gl/breeders_choice.csv"
-# Legacy alias — old layout at / reads this exact key
-stockistscsv: "https://dl.dropbox.com/s/b3gmuxhrrye00gl/breeders_choice.csv"
 maps_api_key: "AIzaSyCdShg_qm-ntKG78Q945VKor9WnKoX-lH8"
 
 author: "Breeder's Choice"
@@ -58,8 +44,7 @@ plugins:
 
 exclude: [Gemfile, Gemfile.lock, README.md, vendor/]
 
-# og image on the new pages only — the OLD pages at / must stay untouched
 defaults:
-  - scope: { path: "preview" }
+  - scope: { path: "" }
     values:
       image: /images/og.jpg
